@@ -1,0 +1,2 @@
+* What's this?
+This package make static blog by orgmode.
