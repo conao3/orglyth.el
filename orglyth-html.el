@@ -34,6 +34,9 @@
 (defvar orglyth-html-remote-root-path "~/www/orglyth/"
   "orglyth-html remote root path")
 
+(defvar orglyth-html-ftp-address "/ftp:conao3@conao3.com:/"
+  "orglyth-html ftp address")
+
 (defvar orglyth-html-sorce-dir-name "src")
 (defvar orglyth-html-pc-dir-name "archives")
 (defvar orglyth-html-amp-dir-name "amp")
@@ -105,14 +108,14 @@
                
                ;; 本番用
                ("web-orgfiles"
-                :base-directory "/home/hoge/mysite-src"
-                :publishing-directory "/ftp:hoge@www.example.com:/"
+                :base-directory ,orglyth-html-remote-sorce-path
+                :publishing-directory ,orglyth-html-ftp-address
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
                ("web-resources"
-                :base-directory "/home/hoge/mysite-src"
-                :publishing-directory "/ftp:hoge@www.example.com:/"
+                :base-directory ,orglyth-html-remote-sorce-path
+                :publishing-directory ,orglyth-html-ftp-address
                 :base-extension "jpg\\|gif\\|png\\|css"
                 :publishing-function org-publish-attachment)
                ("website" :components ("web-orgfiles" "web-resources"))
