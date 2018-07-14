@@ -25,35 +25,35 @@
 ;;; Code:
 
 ;; variables
-(defvar orglyth-root-path "~/public_html/orglyth/"
-  "orglyth sorce root path.")
+(defvar orglyth-html-root-path "~/public_html/orglyth-html/"
+  "orglyth-html sorce root path.")
 
-(defvar orglyth-sorce-path (concat orglyth-root-path "src/")
-  "orglyth sorce path.")
+(defvar orglyth-html-sorce-path (concat orglyth-html-root-path "src/")
+  "orglyth-html sorce path.")
 
-(defvar orglyth-pc-path (concat orglyth-root-path "archives/")
-  "orglyth pc page path")
+(defvar orglyth-html-pc-path (concat orglyth-html-root-path "archives/")
+  "orglyth-html pc page path")
 
-(defvar orglyth-amp-path (concat orglyth-root-path "amp/")
-  "orglyth amp page path")
+(defvar orglyth-html-amp-path (concat orglyth-html-root-path "amp/")
+  "orglyth-html amp page path")
 
-(defvar orglyth-mobile-path (concat orglyth-root-path "mobile/")
-  "orglyth mobile page path (not amp)")
+(defvar orglyth-html-mobile-path (concat orglyth-html-root-path "mobile/")
+  "orglyth-html mobile page path (not amp)")
 
-(defvar orglyth-compile-for-pc t
+(defvar orglyth-html-compile-for-pc t
   "Non-nil means compile html for pc.")
 
-(defvar orglyth-compile-for-amp nil
+(defvar orglyth-html-compile-for-amp nil
   "Non-nil means compile html for amp.")
 
-(defvar orglyth-compile-for-mobile nil
+(defvar orglyth-html-compile-for-mobile nil
   "Non-nil means compile html for mobile.")
 
-(defvar orglyth-template-parts-path (concat orglyth-root-path "parts/")
-  "orglyth template parts path.")
+(defvar orglyth-html-template-parts-path (concat orglyth-html-root-path "parts/")
+  "orglyth-html template parts path.")
 
 
 ;; functions
 
-(provide 'orglyth)
-;;; other-window-or-sprit.el ends here
+(provide 'orglyth-html)
+;;;orglyth-html.el ends here
