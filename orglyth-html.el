@@ -100,7 +100,8 @@
                 :base-extension "org"
                 :style ""
                 :section-numbers nil
-                :table-of-contents nil)
+                :table-of-contents nil
+                :publishing-function org-html-publish-to-html)
                ("local-resources"
                 :base-directory ,orglyth-html-local-sorce-path
                 :publishing-directory ,orglyth-html-local-pc-path
@@ -117,7 +118,8 @@
                 :base-extension "org"
                 :style ""
                 :section-numbers nil
-                :table-of-contents nil)
+                :table-of-contents nil
+                :publishing-function org-html-publish-to-html)
                ("web-resources"
                 :base-directory ,orglyth-html-remote-sorce-path
                 :publishing-directory ,orglyth-html-ftp-address
