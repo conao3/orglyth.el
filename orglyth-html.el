@@ -137,7 +137,12 @@
                     ))
 
 (when orglyth-html-enable-opiton
-  )
+  (setq org-html-footnotes-section "<div id=\"footnotes\">
+<h2 class=\"footnotes\">%s: </h2>
+<div id=\"text-footnotes\">
+%s
+</div>
+</div>"))
 ;; functions
 
 (provide 'orglyth-html)
