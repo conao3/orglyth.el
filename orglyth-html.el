@@ -31,11 +31,15 @@
 (defvar orglyth-html-local-root-path "~/public_html/orglyth-html/"
   "orglyth-html sorce root path.")
 
+(defvar orglyth-html-remote-root-path "~/www/orglyth/"
+  "orglyth-html remote root path")
+
 (defvar orglyth-html-sorce-dir-name "src")
 (defvar orglyth-html-pc-dir-name "archives")
 (defvar orglyth-html-amp-dir-name "amp")
 (defvar orglyth-html-mobile-dir-name "mobile")
 
+;; local path
 (defvar orglyth-html-local-sorce-path
   (concat orglyth-html-local-root-path orglyth-html-sorce-dir-name "/")
   "orglyth-html sorce path.")
@@ -50,6 +54,23 @@
 
 (defvar orglyth-html-local-mobile-path
   (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
+  "orglyth-html mobile page path (not amp)")
+
+;; remote path
+(defvar orglyth-html-remote-sorce-path
+  (concat orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
+  "orglyth-html sorce path.")
+
+(defvar orglyth-html-remote-pc-path
+  (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
+  "orglyth-html pc page path")
+
+(defvar orglyth-html-remote-amp-path
+  (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
+  "orglyth-html amp page path")
+
+(defvar orglyth-html-remote-mobile-path
+  (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
   "orglyth-html mobile page path (not amp)")
 
 
