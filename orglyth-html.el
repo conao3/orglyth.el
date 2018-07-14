@@ -106,7 +106,7 @@
                      :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
-                     :table-of-contents nil
+                     :table-of-contents t
                      :publishing-function org-html-publish-to-html)
                     ("local-resources"
                      :base-directory ,orglyth-html-local-sorce-path
@@ -127,7 +127,7 @@
                      :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
-                     :table-of-contents nil
+                     :table-of-contents t
                      :publishing-function org-html-publish-to-html)
                     ("web-resources"
                      :base-directory ,orglyth-html-local-sorce-path
