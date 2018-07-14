@@ -55,6 +55,37 @@
 (defvar orglyth-html-template-parts-path (concat orglyth-html-root-path "parts/")
   "orglyth-html template parts path.")
 
+(setq org-publish-project-alist
+      ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
+      '(
+        ;; 検証用
+        ("local-orgfiles"
+         :base-directory "/home/hoge/mysite-src"
+         :publishing-directory "/home/hoge/mysite-publish"
+         :style ""
+         :section-numbers nil
+         :table-of-contents nil)
+        ("local-resources"
+         :base-directory "/home/hoge/mysite-src"
+         :publishing-directory "/home/hoge/mysite-publish"
+         :base-extension "jpg\\|gif\\|png\\|css"
+         :publishing-function org-publish-attachment)
+        ("local" :components ("local-orgfiles" "local-resources"))
+        
+        ;; 本番用
+        ("web-orgfiles"
+         :base-directory "/home/hoge/mysite-src"
+         :publishing-directory "/ftp:hoge@www.example.com:/"
+         :style ""
+         :section-numbers nil
+         :table-of-contents nil)
+        ("web-resources"
+         :base-directory "/home/hoge/mysite-src"
+         :publishing-directory "/ftp:hoge@www.example.com:/"
+         :base-extension "jpg\\|gif\\|png\\|css"
+         :publishing-function org-publish-attachment)
+        ("website" :components ("web-orgfiles" "web-resources"))
+        ))
 
 ;; functions
 
