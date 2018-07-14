@@ -28,13 +28,13 @@
 
 (require 'ox-html)
 
-(defvar orglyth-html-local-root-path "~/public_html/orglyth-html/"
+(defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
 (defvar orglyth-html-remote-root-path "~/www/orglyth/"
   "orglyth-html remote root path")
 
-(defvar orglyth-html-ftp-address "/ftp:conao3@conao3.com:/"
+(defvar orglyth-html-ftp-address "/ftp:conao3@conao3.com:"
   "orglyth-html ftp address")
 
 (defvar orglyth-html-sorce-dir-name "src")
@@ -61,19 +61,19 @@
 
 ;; remote path
 (defvar orglyth-html-remote-sorce-path
-  (concat orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
+  (concat orglyth-html-ftp-address orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
-  (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
+  (concat orglyth-html-ftp-address orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
   "orglyth-html pc page path")
 
 (defvar orglyth-html-remote-amp-path
-  (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
+  (concat orglyth-html-ftp-address orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
   "orglyth-html amp page path")
 
 (defvar orglyth-html-remote-mobile-path
-  (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
+  (concat orglyth-html-ftp-address orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
   "orglyth-html mobile page path (not amp)")
 
 
@@ -89,13 +89,13 @@
 (defvar orglyth-html-template-parts-path (concat orglyth-html-local-root-path "parts/")
   "orglyth-html template parts path.")
 
-(add-to-list 'org-publish-project-alist
+(add-list-to-list 'org-publish-project-alist
              ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
              `(
                ;; 検証用
                ("local-orgfiles"
                 :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory orglyth-html-local-pc-path,orglyth-html-local-pc-path
+                :publishing-directory ,orglyth-html-local-pc-path
                 :recursive t
                 :base-extension "org"
                 :style ""
