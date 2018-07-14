@@ -57,17 +57,17 @@
 
 (setq org-publish-project-alist
       ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
-      '(
+      `(
         ;; 検証用
         ("local-orgfiles"
-         :base-directory "/home/hoge/mysite-src"
-         :publishing-directory "/home/hoge/mysite-publish"
+         :base-directory ,orglyth-html-sorce-path
+         :publishing-directory orglyth-html-pc-path,orglyth-html-pc-path
          :style ""
          :section-numbers nil
          :table-of-contents nil)
         ("local-resources"
-         :base-directory "/home/hoge/mysite-src"
-         :publishing-directory "/home/hoge/mysite-publish"
+         :base-directory ,orglyth-html-sorce-path
+         :publishing-directory ,orglyth-html-pc-path
          :base-extension "jpg\\|gif\\|png\\|css"
          :publishing-function org-publish-attachment)
         ("local" :components ("local-orgfiles" "local-resources"))
