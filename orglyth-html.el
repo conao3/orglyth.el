@@ -28,6 +28,9 @@
 
 (require 'ox-html)
 
+(defvar orglyth-html-enable-opiton t
+  "When non-nil, enable recommended options in ox-html.")
+
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
@@ -133,6 +136,8 @@
                     ("website" :components ("web-orgfiles" "web-resources"))
                     ))
 
+(when orglyth-html-enable-opiton
+  )
 ;; functions
 
 (provide 'orglyth-html)
