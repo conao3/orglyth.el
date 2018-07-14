@@ -96,12 +96,14 @@
                ("local-orgfiles"
                 :base-directory ,orglyth-html-local-sorce-path
                 :publishing-directory orglyth-html-local-pc-path,orglyth-html-local-pc-path
+                :recursive t
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
                ("local-resources"
                 :base-directory ,orglyth-html-local-sorce-path
                 :publishing-directory ,orglyth-html-local-pc-path
+                :recursive t
                 :base-extension "jpg\\|gif\\|png\\|css"
                 :publishing-function org-publish-attachment)
                ("local" :components ("local-orgfiles" "local-resources"))
@@ -110,12 +112,14 @@
                ("web-orgfiles"
                 :base-directory ,orglyth-html-remote-sorce-path
                 :publishing-directory ,orglyth-html-ftp-address
+                :recursive t
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
                ("web-resources"
                 :base-directory ,orglyth-html-remote-sorce-path
                 :publishing-directory ,orglyth-html-ftp-address
+                :recursive t
                 :base-extension "jpg\\|gif\\|png\\|css"
                 :publishing-function org-publish-attachment)
                ("website" :components ("web-orgfiles" "web-resources"))
