@@ -191,7 +191,7 @@
 </div>
 
 <div align=right>
-<a href=\"http://cha.la.coocan.jp/\">ホーム</a> |
+<a href=\"http://conao3.com/\">ホーム</a> |
 <a href=\"index.html\">文書トップ</a> | <a href=\"sitemap.html\">目次</a>
 </div>
 ")))
