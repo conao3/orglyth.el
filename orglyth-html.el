@@ -179,7 +179,7 @@
 <script type=\"text/javascript\"
         src=\"%PATH\"></script>")
 
-  ;; sew `org-html-preable-format'
+  ;; sew `org-html-preamble-format'
   (setq org-html-preamble t
         org-html-preamble-format '(("en" "
 <div align=right>
@@ -192,7 +192,7 @@
 </div>
 ")))
   
-  ;; see `org-html-postable-format'
+  ;; see `org-html-postamble-format'
   (setq org-html-postamble t
         org-html-postamble-format '(("en" "<p class=\"author\">Author: %a (%e)</p>
 <p class=\"date\">Date: %d</p>
