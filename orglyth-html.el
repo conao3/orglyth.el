@@ -179,16 +179,13 @@
 <script type=\"text/javascript\"
         src=\"%PATH\"></script>")
   
-  (setq org-html-postamble "
-<div align=right>
-<a href=\"https://conao3.com/\">ホーム</a> |
-<a href=\"index.html\">文書トップ</a> | <a href=\"sitemap.html\">目次</a>
-</div>
+  (setq org-html-postamble t)
 
-<div align=right>
-Created by %c
-</div>
-")
+  (setq org-html-postamble-format
+  '(("en" "<p class=\"author\">Author: %a (%e)</p>
+<p class=\"date\">Date: %d</p>
+<p class=\"creator\">%c</p>
+<p class=\"validation\">%v</p>")))
   
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
