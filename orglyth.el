@@ -31,8 +31,18 @@
 (defvar orglyth-sorce-path (concat orglyth-root-path "src/")
   "orglyth sorce path.")
 
-(defvar orglyth-build-path (concat orglyth-root-path "build/")
-  "orglyth dest path.")
+(defvar orglyth-pc-path (concat orglyth-root-path "archives/")
+  "orglyth pc page path")
+
+(defvar orglyth-amp-path (concat orglyth-root-path "amp/")
+  "orglyth amp page path")
+
+(defvar orglyth-mobile-path (concat orglyth-root-path "mobile/")
+  "orglyth mobile page path (not amp)")
+
+(defvar orglyth-template-parts-path (concat orglyth-root-path "parts/")
+  "orglyth template parts path.")
+
 
 ;; functions
 
