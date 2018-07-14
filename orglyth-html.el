@@ -142,6 +142,19 @@
         org-html-coding-system 'utf-8
         org-html-doctype "html5"
         org-html-checkbox-type 'unicode)
+  
+  (setq org-html-mathjax-options
+        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" )
+          (scale "100")
+          (align "center")
+          (font "TeX")
+          (linebreaks "false")
+          (autonumber "AMS")
+          (indent "0em")
+          (multlinewidth "85%")
+          (tagindent ".8em")
+          (tagside "right")))
+  
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
 <div id=\"text-footnotes\">
@@ -152,8 +165,3 @@
 
 (provide 'orglyth-html)
 ;;;orglyth-html.el ends here
-
-
-
-
-
