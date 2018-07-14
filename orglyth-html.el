@@ -90,48 +90,48 @@
   "orglyth-html template parts path.")
 
 (add-list-to-list 'org-publish-project-alist
-             ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
-             `(
-               ;; 検証用
-               ("local-orgfiles"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-local-pc-path
-                :recursive t
-                :base-extension "org"
-                :style ""
-                :auto-sitemap t
-                :sitemap-title "Sitemap!!"
-                :section-numbers nil
-                :table-of-contents nil
-                :publishing-function org-html-publish-to-html)
-               ("local-resources"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-local-pc-path
-                :recursive t
-                :base-extension "jpg\\|gif\\|png\\|css"
-                :publishing-function org-publish-attachment)
-               ("local" :components ("local-orgfiles" "local-resources"))
-               
-               ;; 本番用
-               ("web-orgfiles"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-remote-pc-path
-                :recursive t
-                :base-extension "org"
-                :style ""
-                :auto-sitemap t
-                :sitemap-title "Sitemap!!"
-                :section-numbers nil
-                :table-of-contents nil
-                :publishing-function org-html-publish-to-html)
-               ("web-resources"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-remote-pc-path
-                :recursive t
-                :base-extension "jpg\\|gif\\|png\\|css"
-                :publishing-function org-publish-attachment)
-               ("website" :components ("web-orgfiles" "web-resources"))
-               ))
+                  ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
+                  `(
+                    ;; 検証用
+                    ("local-orgfiles"
+                     :base-directory ,orglyth-html-local-sorce-path
+                     :publishing-directory ,orglyth-html-local-pc-path
+                     :recursive t
+                     :base-extension "org"
+                     :style ""
+                     :auto-sitemap t
+                     :sitemap-title "Sitemap!!"
+                     :section-numbers nil
+                     :table-of-contents nil
+                     :publishing-function org-html-publish-to-html)
+                    ("local-resources"
+                     :base-directory ,orglyth-html-local-sorce-path
+                     :publishing-directory ,orglyth-html-local-pc-path
+                     :recursive t
+                     :base-extension "jpg\\|gif\\|png\\|css"
+                     :publishing-function org-publish-attachment)
+                    ("local" :components ("local-orgfiles" "local-resources"))
+                    
+                    ;; 本番用
+                    ("web-orgfiles"
+                     :base-directory ,orglyth-html-local-sorce-path
+                     :publishing-directory ,orglyth-html-remote-pc-path
+                     :recursive t
+                     :base-extension "org"
+                     :style ""
+                     :auto-sitemap t
+                     :sitemap-title "Sitemap!!"
+                     :section-numbers nil
+                     :table-of-contents nil
+                     :publishing-function org-html-publish-to-html)
+                    ("web-resources"
+                     :base-directory ,orglyth-html-local-sorce-path
+                     :publishing-directory ,orglyth-html-remote-pc-path
+                     :recursive t
+                     :base-extension "jpg\\|gif\\|png\\|css"
+                     :publishing-function org-publish-attachment)
+                    ("website" :components ("web-orgfiles" "web-resources"))
+                    ))
 
 ;; functions
 
