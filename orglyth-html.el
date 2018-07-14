@@ -179,11 +179,9 @@
 <script type=\"text/javascript\"
         src=\"%PATH\"></script>")
   
-  (setq org-html-postamble t)
-
   ;; see `org-html-postable-format'
-  (setq org-html-postamble-format
-  '(("en" "<p class=\"author\">Author: %a (%e)</p>
+  (setq org-html-postamble t
+        org-html-postamble-format '(("en" "<p class=\"author\">Author: %a (%e)</p>
 <p class=\"date\">Date: %d</p>
 <p class=\"creator\">%c</p>
 <p class=\"validation\">%v</p>")))
