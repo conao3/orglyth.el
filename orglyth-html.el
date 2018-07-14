@@ -25,6 +25,9 @@
 ;;; Code:
 
 ;; variables
+
+(require 'ox-html)
+
 (defvar orglyth-html-root-path "~/public_html/orglyth-html/"
   "orglyth-html sorce root path.")
 
