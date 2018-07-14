@@ -212,7 +212,103 @@
 %s
 </div>
 </div>"))
+
 ;; functions
+
+;; http://davidaventimiglia.com/blogging_with_emacs.html
+(defun dav-org-publish-org-sitemap (project &optional sitemap-filename)
+  "Create a sitemap of pages in set defined by PROJECT.
+Optionally set the filename of the sitemap with SITEMAP-FILENAME.
+Default for SITEMAP-FILENAME is 'sitemap.org'."
+  (let* ((project-plist (cdr project))
+         (dir (file-name-as-directory
+               (plist-get project-plist :base-directory)))
+         (localdir (file-name-directory dir))
+         (indent-str (make-string 2 ?\ ))
+         (exclude-regexp (plist-get project-plist :exclude))
+         (files (nreverse
+                 (org-publish-get-base-files project exclude-regexp)))
+         (sitemap-filename (concat dir (or sitemap-filename "sitemap.org")))
+         (sitemap-title (or (plist-get project-plist :sitemap-title)
+                            (concat "Sitemap for project " (car project))))
+         (sitemap-style (or (plist-get project-plist :sitemap-style)
+                            'tree))
+         (sitemap-sans-extension
+          (plist-get project-plist :sitemap-sans-extension))
+         (visiting (find-buffer-visiting sitemap-filename))
+         (ifn (file-name-nondirectory sitemap-filename))
+         file sitemap-buffer)
+    (with-current-buffer
+        (let ((org-inhibit-startup t))
+          (setq sitemap-buffer
+                (or visiting (find-file sitemap-filename))))
+      (erase-buffer)
+      (insert (concat "#+TITLE: " sitemap-title "\n\n"))
+      (while (setq file (pop files))
+        (let ((fn (file-name-nondirectory file))
+              (link (file-relative-name file dir))
+              (oldlocal localdir)
+              ;; bind new variable prefix
+              (prefix (concat
+                       (format-time-string org-publish-sitemap-date-format (org-publish-find-date file))
+                       " : ")))
+          (when sitemap-sans-extension
+            (setq link (file-name-sans-extension link)))
+          ;; sitemap shouldn't list itself
+          (unless (equal (file-truename sitemap-filename)
+                         (file-truename file))
+            (if (eq sitemap-style 'list)
+                (message "Generating list-style sitemap for %s" sitemap-title)
+              (message "Generating tree-style sitemap for %s" sitemap-title)
+              (setq localdir (concat (file-name-as-directory dir)
+                                     (file-name-directory link)))
+              (unless (string= localdir oldlocal)
+                (if (string= localdir dir)
+                    (setq indent-str (make-string 2 ?\ ))
+                  (let ((subdirs
+                         (split-string
+                          (directory-file-name
+                           (file-name-directory
+                            (file-relative-name localdir dir))) "/"))
+                        (subdir "")
+                        (old-subdirs (split-string
+                                      (file-relative-name oldlocal dir) "/")))
+                    (setq indent-str (make-string 2 ?\ ))
+                    (while (string= (car old-subdirs) (car subdirs))
+                      (setq indent-str (concat indent-str (make-string 2 ?\ )))
+                      (pop old-subdirs)
+                      (pop subdirs))
+                    (dolist (d subdirs)
+                      (setq subdir (concat subdir d "/"))
+                      (insert (concat indent-str
+                                      " + "
+                                      prefix  ;; insert prefix
+                                      d "\n"))
+                      (setq indent-str (make-string
+                                        (+ (length indent-str) 2) ?\ )))))))
+            ;; This is common to 'flat and 'tree
+            (let ((entry
+                   ;; Invoke new helper function
+                   (dav-org-publish-format-file-entry
+                    org-publish-sitemap-file-entry-format file project-plist))
+                  (regexp "\\(.*\\)\\[\\([^][]+\\)\\]\\(.*\\)"))
+              (cond ((string-match-p regexp entry)
+                     (string-match regexp entry)
+                     (insert (concat indent-str
+                                     " + " (match-string 1 entry)
+                                     prefix  ;; insert prefix
+                                     "[[file:" link "]["
+                                     (match-string 2 entry)
+                                     "]]" (match-string 3 entry) "\n")))
+                    (t
+                     (insert (concat indent-str
+                                     " + "
+                                     prefix  ;; insert prefix
+                                     "[[file:" link "]["
+                                     entry
+                                     "]]\n"))))))))
+      (save-buffer))
+    (or visiting (kill-buffer sitemap-buffer))))
 
 (provide 'orglyth-html)
 ;;;orglyth-html.el ends here
