@@ -99,6 +99,8 @@
                 :recursive t
                 :base-extension "org"
                 :style ""
+                :auto-sitemap t
+                :sitemap-title "Sitemap!!"
                 :section-numbers nil
                 :table-of-contents nil
                 :publishing-function org-html-publish-to-html)
@@ -117,6 +119,8 @@
                 :recursive t
                 :base-extension "org"
                 :style ""
+                :auto-sitemap t
+                :sitemap-title "Sitemap!!"
                 :section-numbers nil
                 :table-of-contents nil
                 :publishing-function org-html-publish-to-html)
