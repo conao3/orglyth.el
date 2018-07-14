@@ -28,7 +28,7 @@
 
 (require 'ox-html)
 
-(defvar orglyth-html-root-path "~/public_html/orglyth-html/"
+(defvar orglyth-html-local-root-path "~/public_html/orglyth-html/"
   "orglyth-html sorce root path.")
 
 (defvar orglyth-html-sorce-dir-name "src")
@@ -36,21 +36,22 @@
 (defvar orglyth-html-amp-dir-name "amp")
 (defvar orglyth-html-mobile-dir-name "mobile")
 
-(defvar orglyth-html-sorce-path
-  (concat orglyth-html-root-path orglyth-html-sorce-dir-name "/")
+(defvar orglyth-html-local-sorce-path
+  (concat orglyth-html-local-root-path orglyth-html-sorce-dir-name "/")
   "orglyth-html sorce path.")
 
-(defvar orglyth-html-pc-path
-  (concat orglyth-html-root-path orglyth-html-pc-dir-name "/")
+(defvar orglyth-html-local-pc-path
+  (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
   "orglyth-html pc page path")
 
-(defvar orglyth-html-amp-path
-  (concat orglyth-html-root-path orglyth-html-amp-dir-name "/")
+(defvar orglyth-html-local-amp-path
+  (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
   "orglyth-html amp page path")
 
-(defvar orglyth-html-mobile-path
-  (concat orglyth-html-root-path orglyth-html-mobile-path "/")
+(defvar orglyth-html-local-mobile-path
+  (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
   "orglyth-html mobile page path (not amp)")
+
 
 (defvar orglyth-html-compile-for-pc t
   "Non-nil means compile html for pc.")
@@ -61,7 +62,7 @@
 (defvar orglyth-html-compile-for-mobile nil
   "Non-nil means compile html for mobile.")
 
-(defvar orglyth-html-template-parts-path (concat orglyth-html-root-path "parts/")
+(defvar orglyth-html-template-parts-path (concat orglyth-html-local-root-path "parts/")
   "orglyth-html template parts path.")
 
 (add-to-list 'org-publish-project-alist
@@ -69,14 +70,14 @@
              `(
                ;; 検証用
                ("local-orgfiles"
-                :base-directory ,orglyth-html-sorce-path
-                :publishing-directory orglyth-html-pc-path,orglyth-html-pc-path
+                :base-directory ,orglyth-html-local-sorce-path
+                :publishing-directory orglyth-html-local-pc-path,orglyth-html-local-pc-path
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
                ("local-resources"
-                :base-directory ,orglyth-html-sorce-path
-                :publishing-directory ,orglyth-html-pc-path
+                :base-directory ,orglyth-html-local-sorce-path
+                :publishing-directory ,orglyth-html-local-pc-path
                 :base-extension "jpg\\|gif\\|png\\|css"
                 :publishing-function org-publish-attachment)
                ("local" :components ("local-orgfiles" "local-resources"))
