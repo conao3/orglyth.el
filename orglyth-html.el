@@ -178,6 +178,19 @@
 </script>
 <script type=\"text/javascript\"
         src=\"%PATH\"></script>")
+
+  ;; sew `org-html-preable-format'
+  (setq org-html-preamble t
+        org-html-preamble-format '(("en" "
+<div align=right>
+最終更新日: %C
+</div>
+
+<div align=right>
+<a href=\"http://cha.la.coocan.jp/\">ホーム</a> |
+<a href=\"index.html\">文書トップ</a> | <a href=\"sitemap.html\">目次</a>
+</div>
+")))
   
   ;; see `org-html-postable-format'
   (setq org-html-postamble t
