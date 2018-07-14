@@ -31,16 +31,25 @@
 (defvar orglyth-html-root-path "~/public_html/orglyth-html/"
   "orglyth-html sorce root path.")
 
-(defvar orglyth-html-sorce-path (concat orglyth-html-root-path "src/")
+(defvar orglyth-html-sorce-dir-name "src")
+(defvar orglyth-html-pc-dir-name "archives")
+(defvar orglyth-html-amp-dir-name "amp")
+(defvar orglyth-html-mobile-dir-name "mobile")
+
+(defvar orglyth-html-sorce-path
+  (concat orglyth-html-root-path orglyth-html-sorce-dir-name "/")
   "orglyth-html sorce path.")
 
-(defvar orglyth-html-pc-path (concat orglyth-html-root-path "archives/")
+(defvar orglyth-html-pc-path
+  (concat orglyth-html-root-path orglyth-html-pc-dir-name "/")
   "orglyth-html pc page path")
 
-(defvar orglyth-html-amp-path (concat orglyth-html-root-path "amp/")
+(defvar orglyth-html-amp-path
+  (concat orglyth-html-root-path orglyth-html-amp-dir-name "/")
   "orglyth-html amp page path")
 
-(defvar orglyth-html-mobile-path (concat orglyth-html-root-path "mobile/")
+(defvar orglyth-html-mobile-path
+  (concat orglyth-html-root-path orglyth-html-mobile-path "/")
   "orglyth-html mobile page path (not amp)")
 
 (defvar orglyth-html-compile-for-pc t
