@@ -181,6 +181,7 @@
   
   (setq org-html-postamble t)
 
+  ;; see `org-html-postable-format'
   (setq org-html-postamble-format
   '(("en" "<p class=\"author\">Author: %a (%e)</p>
 <p class=\"date\">Date: %d</p>
