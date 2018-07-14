@@ -139,12 +139,12 @@
                     ))
 
 (when orglyth-html-enable-opiton
-  (setq org-html-with-latex 'mathjax
-        org-html-htmlize-output-type 'css
-        org-html-coding-system 'utf-8
-        org-html-doctype "html5"
-        org-html-checkbox-type 'unicode
-        org-html-head-include-scripts nil
+  (setq org-html-with-latex                 'mathjax
+        org-html-htmlize-output-type        'css
+        org-html-coding-system              'utf-8
+        org-html-doctype                    "html5"
+        org-html-checkbox-type              'unicode
+        org-html-head-include-scripts       nil
         org-html-head-include-default-style nil)
   
   (setq org-html-mathjax-options
