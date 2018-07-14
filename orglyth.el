@@ -25,22 +25,16 @@
 ;;; Code:
 
 ;; variables
+(defvar orglyth-root-path "~/public_html/orglyth/"
+  "orglyth sorce root path.")
+
+(defvar orglyth-sorce-path (concat orglyth-root-path "src/")
+  "orglyth sorce path.")
+
+(defvar orglyth-build-path (concat orglyth-root-path "build/")
+  "orglyth dest path.")
 
 ;; functions
 
 (provide 'orglyth)
 ;;; other-window-or-sprit.el ends here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
