@@ -127,13 +127,19 @@
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
                      :publishing-function org-html-publish-to-html)
+                    ("web-orgsources"
+                     :base-directory ,orglyth-html-local-sorce-path
+                     :publishing-directory ,orglyth-html-remote-sorce-path
+                     :recursive t
+                     :base-extension "org"
+                     :publishing-function org-publish-attachment)
                     ("web-resources"
                      :base-directory ,orglyth-html-local-sorce-path
                      :publishing-directory ,orglyth-html-remote-pc-path
                      :recursive t
                      :base-extension "jpg\\|gif\\|png\\|css"
                      :publishing-function org-publish-attachment)
-                    ("website" :components ("web-orgfiles" "web-resources"))
+                    ("website" :components ("web-orgfiles" "web-orgsources" "web-resources"))
                     ))
 
 (when orglyth-html-enable-opiton
