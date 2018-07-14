@@ -112,8 +112,8 @@
                
                ;; 本番用
                ("web-orgfiles"
-                :base-directory ,orglyth-html-remote-sorce-path
-                :publishing-directory ,orglyth-html-ftp-address
+                :base-directory ,orglyth-html-local-sorce-path
+                :publishing-directory ,orglyth-html-remote-pc-path
                 :recursive t
                 :base-extension "org"
                 :style ""
@@ -121,8 +121,8 @@
                 :table-of-contents nil
                 :publishing-function org-html-publish-to-html)
                ("web-resources"
-                :base-directory ,orglyth-html-remote-sorce-path
-                :publishing-directory ,orglyth-html-ftp-address
+                :base-directory ,orglyth-html-local-sorce-path
+                :publishing-directory ,orglyth-html-remote-pc-path
                 :recursive t
                 :base-extension "jpg\\|gif\\|png\\|css"
                 :publishing-function org-publish-attachment)
