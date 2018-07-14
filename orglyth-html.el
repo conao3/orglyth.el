@@ -97,6 +97,7 @@
                 :base-directory ,orglyth-html-local-sorce-path
                 :publishing-directory orglyth-html-local-pc-path,orglyth-html-local-pc-path
                 :recursive t
+                :base-extension "org"
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
@@ -113,6 +114,7 @@
                 :base-directory ,orglyth-html-remote-sorce-path
                 :publishing-directory ,orglyth-html-ftp-address
                 :recursive t
+                :base-extension "org"
                 :style ""
                 :section-numbers nil
                 :table-of-contents nil)
