@@ -198,10 +198,9 @@
   
   ;; see `org-html-postamble-format'
   (setq org-html-postamble t
-        org-html-postamble-format '(("en" "<p class=\"author\">Author: %a (%e)</p>
+        org-html-postamble-format '(("en" "<p class=\"author\">Author: %a</p>
 <p class=\"date\">Date: %d</p>
-<p class=\"creator\">%c</p>
-<p class=\"validation\">%v</p>")))
+<p class=\"creator\">%c</p>")))
   
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
