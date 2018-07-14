@@ -142,7 +142,8 @@
         org-html-coding-system 'utf-8
         org-html-doctype "html5"
         org-html-checkbox-type 'unicode
-        org-html-head-include-scripts nil)
+        org-html-head-include-scripts nil
+        org-html-head-include-default-style nil)
   
   (setq org-html-mathjax-options
         '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" )
