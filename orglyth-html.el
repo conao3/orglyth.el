@@ -137,7 +137,8 @@
                     ))
 
 (when orglyth-html-enable-opiton
-  (setq org-html-with-latex 'mathjax)
+  (setq org-html-with-latex 'mathjax
+        org-html-htmlize-output-type 'css)
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
 <div id=\"text-footnotes\">
