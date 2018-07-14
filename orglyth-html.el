@@ -154,6 +154,30 @@
           (multlinewidth "85%")
           (tagindent ".8em")
           (tagside "right")))
+
+  (setq org-html-mathjax-template
+        "<script type=\"text/x-mathjax-config\">
+    MathJax.Hub.Config({
+        displayAlign: \"%ALIGN\",
+        displayIndent: \"%INDENT\",
+
+        \"HTML-CSS\": { scale: %SCALE,
+                        linebreaks: { automatic: \"%LINEBREAKS\" },
+                        webFont: \"%FONT\"
+                       },
+        SVG: {scale: %SCALE,
+              linebreaks: { automatic: \"%LINEBREAKS\" },
+              font: \"%FONT\"},
+        NativeMML: {scale: %SCALE},
+        TeX: { equationNumbers: {autoNumber: \"%AUTONUMBER\"},
+               MultLineWidth: \"%MULTLINEWIDTH\",
+               TagSide: \"%TAGSIDE\",
+               TagIndent: \"%TAGINDENT\"
+             }
+});
+</script>
+<script type=\"text/javascript\"
+        src=\"%PATH\"></script>")
   
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
