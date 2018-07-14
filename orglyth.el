@@ -40,6 +40,15 @@
 (defvar orglyth-mobile-path (concat orglyth-root-path "mobile/")
   "orglyth mobile page path (not amp)")
 
+(defvar orglyth-compile-for-pc t
+  "Non-nil means compile html for pc.")
+
+(defvar orglyth-compile-for-amp nil
+  "Non-nil means compile html for amp.")
+
+(defvar orglyth-compile-for-mobile nil
+  "Non-nil means compile html for mobile.")
+
 (defvar orglyth-template-parts-path (concat orglyth-root-path "parts/")
   "orglyth template parts path.")
 
