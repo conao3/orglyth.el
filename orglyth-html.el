@@ -103,6 +103,7 @@
                      :base-extension "org"
                      :style ""
                      :auto-sitemap t
+                     :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
                      :table-of-contents nil
@@ -123,6 +124,7 @@
                      :base-extension "org"
                      :style ""
                      :auto-sitemap t
+                     :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
                      :table-of-contents nil
