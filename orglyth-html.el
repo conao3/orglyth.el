@@ -139,7 +139,8 @@
 (when orglyth-html-enable-opiton
   (setq org-html-with-latex 'mathjax
         org-html-htmlize-output-type 'css
-        org-html-coding-system 'utf-8)
+        org-html-coding-system 'utf-8
+        org-html-doctype "html5")
   (setq org-html-footnotes-section "<div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
 <div id=\"text-footnotes\">
@@ -150,8 +151,3 @@
 
 (provide 'orglyth-html)
 ;;;orglyth-html.el ends here
-
-
-
-
-
