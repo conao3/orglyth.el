@@ -222,9 +222,32 @@
 
 ;; functions
 
+(defun orglyth-html-write-str (str filename)
+  (with-temp-buffer
+    (insert str)
+    (write-region (point-min) (point-max) filename)))
+
 (defun create-root-index-org (plist)
   "create root index.org"
-  )
+  (catch 'orglyth-error
+    (message "create-root-index-org start!!")
+    (message (or (plist-get plist :base-directory)
+                 (progn (warn "not set :base-directory, exit create-root-index-org")
+                        (throw 'orglyth-error "not set variable"))
+                 ))
+    (let* ((base-dir (or (plist-get plist :base-directory)
+                         (progn (warn "not set :base-directory, exit create-root-index-org")
+                                (throw 'orglyth-error "not set variable"))))
+           (dest-dir (or (plist-get plist :publishing-directory)
+                         (progn (warn "not set :publishing-directory, exit create-root-index-org")
+                                (throw 'orglyth-error "not set variable"))))
+           (title (or (plist-get plist :sitemap-title)))
+           (filepath (concat base-dir "/index.org")))
+      (orglyth-html-write-str (concat
+                               "#+title"
+                               title)
+                              filepath))))
+
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
 (defun dav-org-publish-org-sitemap (project &optional sitemap-filename)
   "Create a sitemap of pages in set defined by PROJECT.
