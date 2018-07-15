@@ -131,7 +131,6 @@
                      :auto-sitemap t
                      :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
-                     :makeindex t
                      :section-numbers nil
                      :publishing-function org-html-publish-to-html)
                     ("web-orgsources"
