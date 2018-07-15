@@ -96,6 +96,12 @@
                   ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
                   `(
                     ;; 検証用
+                    ("local-rootindex"
+                     :base-directory ,orglyth-html-local-root-path
+                     :publishing-directory ,orglyth-html-local-root-path
+                     :base-extension "org"
+                     :preparation-function create-root-index-org
+                     :publishing-function org-html-publish-to-html)
                     ("local-orgfiles"
                      :base-directory ,orglyth-html-local-sorce-path
                      :publishing-directory ,orglyth-html-local-pc-path
@@ -113,7 +119,7 @@
                      :recursive t
                      :base-extension "jpg\\|gif\\|png\\|css"
                      :publishing-function org-publish-attachment)
-                    ("local" :components ("local-orgfiles" "local-resources"))
+                    ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
                     
                     ;; 本番用
                     ("web-orgfiles"
@@ -125,6 +131,7 @@
                      :auto-sitemap t
                      :sitemap-filename "index.html"
                      :sitemap-title "Sitemap!!"
+                     :makeindex t
                      :section-numbers nil
                      :publishing-function org-html-publish-to-html)
                     ("web-orgsources"
@@ -215,6 +222,9 @@
 
 ;; functions
 
+(defun create-root-index-org (plist)
+  "create root index.org"
+  )
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
 (defun dav-org-publish-org-sitemap (project &optional sitemap-filename)
   "Create a sitemap of pages in set defined by PROJECT.
