@@ -234,7 +234,8 @@
 Create a sitemap of pages in set defined by PROJECT.
 Optionally set the filename of the sitemap with SITEMAP-FILENAME.
 Default for SITEMAP-FILENAME is `sitemap.org'"
-  )
+  (let ((sitemap-builder (org-publish-property :sitemap-function project)))
+    (funcall sitemap-builder project sitemap-filename)))
 
 (defun orglyth-html-create-root-index-org (plist)
   "create root index.org"
