@@ -198,6 +198,9 @@
   (setq org-html-preamble t
         org-html-preamble-format '(("en" "
 <div align=right>
+初稿: %d
+</div>
+<div align=right>
 最終更新日: %C
 </div>
 
