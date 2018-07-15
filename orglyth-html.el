@@ -100,7 +100,7 @@
                      :base-directory ,orglyth-html-local-root-path
                      :publishing-directory ,orglyth-html-local-root-path
                      :base-extension "org"
-                     :preparation-function create-root-index-org
+                     :preparation-function orglyth-html-create-root-index-org
                      :publishing-function org-html-publish-to-html)
                     ("local-orgfiles"
                      :base-directory ,orglyth-html-local-sorce-path
@@ -227,7 +227,7 @@
     (insert str)
     (write-region (point-min) (point-max) filename)))
 
-(defun create-root-index-org (plist)
+(defun orglyth-html-create-root-index-org (plist)
   "create root index.org"
   (catch 'orglyth-error
     (message "create-root-index-org start!!")
