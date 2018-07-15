@@ -229,6 +229,13 @@
     (insert str)
     (write-region (point-min) (point-max) filename)))
 
+(defun orglyth-html-publish-sitemap (project &optional sitemap-filename)
+  "Override `org-publish-sitemap' when publish site.
+Create a sitemap of pages in set defined by PROJECT.
+Optionally set the filename of the sitemap with SITEMAP-FILENAME.
+Default for SITEMAP-FILENAME is `sitemap.org'"
+  )
+
 (defun orglyth-html-create-root-index-org (plist)
   "create root index.org"
   (catch 'orglyth-error
