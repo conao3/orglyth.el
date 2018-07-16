@@ -109,7 +109,7 @@
                      :base-extension "org"
                      :style ""
                      :auto-sitemap t
-                     :sitemap-filename "index.html"
+                     :sitemap-filename "index.org"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
                      :publishing-function org-html-publish-to-html)
@@ -129,7 +129,7 @@
                      :base-extension "org"
                      :style ""
                      :auto-sitemap t
-                     :sitemap-filename "index.html"
+                     :sitemap-filename "index.org"
                      :sitemap-title "Sitemap!!"
                      :section-numbers nil
                      :publishing-function org-html-publish-to-html)
