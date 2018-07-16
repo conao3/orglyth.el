@@ -229,13 +229,20 @@
     (insert str)
     (write-region (point-min) (point-max) filename)))
 
-(defun orglyth-html-publish-sitemap (project &optional sitemap-filename)
-  "Override `org-publish-sitemap' when publish site.
+(defun orglyth-html-publish-sitemap-around (func &rest args)
+  "Advice around `org-publish-sitemap' as FUNC.
+ARGS is argument.
+Override `org-publish-sitemap' when publish site.
 Create a sitemap of pages in set defined by PROJECT.
 Optionally set the filename of the sitemap with SITEMAP-FILENAME.
 Default for SITEMAP-FILENAME is `sitemap.org'"
-  (let ((sitemap-builder (org-publish-property :sitemap-function project)))
-    (funcall sitemap-builder project sitemap-filename)))
+  ;; (let ((sitemap-builder (org-publish-property :sitemap-function project)))
+  ;;   (funcall sitemap-builder project sitemap-filename)))
+  
+  )
+
+(advice-add #'org-publish-sitemap :around #'orglyth-html-publish-sitemap-around)
+(advice-remove #'org-publish-sitemap #'orglyth-html-publish-sitemap-around)
 
 (defun orglyth-html-create-root-index-org (plist)
   "create root index.org"
