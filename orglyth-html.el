@@ -158,7 +158,7 @@
         org-html-head-include-default-style nil)
   
   (setq org-html-mathjax-options
-        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML" )
+        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
           (scale "100")
           (align "center")
           (font "TeX")
