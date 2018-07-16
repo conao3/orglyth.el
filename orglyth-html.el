@@ -111,7 +111,7 @@
                      :auto-sitemap t
                      :sitemap-filename "index.org"
                      :sitemap-title "Sitemap!!"
-                     :section-numbers nil
+                     :section-numbers t
                      :publishing-function org-html-publish-to-html)
                     ("local-resources"
                      :base-directory ,orglyth-html-local-sorce-path
@@ -131,7 +131,7 @@
                      :auto-sitemap t
                      :sitemap-filename "index.org"
                      :sitemap-title "Sitemap!!"
-                     :section-numbers nil
+                     :section-numbers t
                      :publishing-function org-html-publish-to-html)
                     ("web-orgsources"
                      :base-directory ,orglyth-html-local-sorce-path
