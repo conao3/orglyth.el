@@ -111,6 +111,7 @@
                      :auto-sitemap t
                      :sitemap-filename "index.org"
                      :sitemap-title "Sitemap!!"
+                     :makeindex t
                      :section-numbers t
                      :publishing-function org-html-publish-to-html)
                     ("local-resources"
