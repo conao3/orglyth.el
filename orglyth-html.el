@@ -92,7 +92,7 @@
 (defvar orglyth-html-template-parts-path (concat orglyth-html-local-root-path "parts/")
   "orglyth-html template parts path.")
 
-(add-list-to-list 'org-publish-project-alist
+(add-to-list 'org-publish-project-alist
                   ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
                   `(
                     ;; 検証用
