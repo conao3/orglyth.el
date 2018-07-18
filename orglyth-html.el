@@ -31,6 +31,20 @@
 (defvar orglyth-html-enable-opiton t
   "When non-nil, enable recommended options in ox-html.")
 
+(defvar orglyth-html-use-ftp t
+  "When non-nil, remote root path will be setted
+`orglyth-html-ftp-address':`orglyth-html-remote-root-path'.
+
+When nil, remote root path will be setted `orglyth-html-remote-root-path'
+`sshfs' (if there are not, install console) can mount ssh folder as normal drive.
+OS X:
+  > brew cask install osxfuse
+  > brew install sshfs
+  > mkdir sakura
+  > sshfs conao3@conao3.sakura.ne.jp:/home/conao3/www/orglyth sakura
+  >
+  > diskutil unmount sakura    # unmount sshfs")
+
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
