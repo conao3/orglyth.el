@@ -157,20 +157,20 @@ OS X:
     :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
 
-(add-list-to-list 'org-publish-project-alist
-                  ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
-                  `(
-                    ;; 検証用
-                    ,(cons "local-rootindex" (cdr orglyth-html-default-index-option))
-                    ,(cons "local-orgfiles" (cdr orglyth-html-default-org-option))
-                    ,(cons "local-resources" (cdr orglyth-html-default-resources-option))
-                    ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
-                    
-                    ;; 本番用
-                    ,(cons "web-rootindex" (cdr orglyth-html-default-index-option))
-                    ,(cons "web-orgfiles" (cdr orglyth-html-default-org-option))
-                    ,(cons "web-resources" (cdr orglyth-html-default-resources-option))
-                    ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
+(orglyth-add-list-to-list 'org-publish-project-alist
+                          ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
+                          `(
+                            ;; 検証用
+                            ,(cons "local-rootindex" (cdr orglyth-html-default-index-option))
+                            ,(cons "local-orgfiles" (cdr orglyth-html-default-org-option))
+                            ,(cons "local-resources" (cdr orglyth-html-default-resources-option))
+                            ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
+                            
+                            ;; 本番用
+                            ,(cons "web-rootindex" (cdr orglyth-html-default-index-option))
+                            ,(cons "web-orgfiles" (cdr orglyth-html-default-org-option))
+                            ,(cons "web-resources" (cdr orglyth-html-default-resources-option))
+                            ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
 
 (when orglyth-html-enable-opiton
   (setq org-html-with-latex                 'mathjax
