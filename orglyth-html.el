@@ -126,62 +126,51 @@ OS X:
   "orglyth-html mobile page path (not amp)")
 
 
+(defvar orglyth-html-default-org-option
+  `("default"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-local-pc-path
+    :recursive t
+    :base-extension "org"
+    :style ""
+    :auto-sitemap t
+    :sitemap-filename "index.org"
+    :sitemap-title "Sitemap!!"
+    :makeindex t
+    :section-numbers t
+    :publishing-function org-html-publish-to-html)
+  "default options fot orglyth-html")
+
+(defvar orglyth-html-default-resources-option
+  `("default"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-local-pc-path
+    :recursive t
+    :base-extension "jpg\\|gif\\|png\\|css"
+    :publishing-function org-publish-attachment))
+
+(defvar orglyth-html-default-index-option
+  `("default"
+    :base-directory ,orglyth-html-local-root-path
+    :publishing-directory ,orglyth-html-local-root-path
+    :base-extension "org"
+    :preparation-function orglyth-html-create-root-index-org
+    :publishing-function org-html-publish-to-html))
+
 (add-to-list 'org-publish-project-alist
              ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
              `(
                ;; 検証用
-               ("local-rootindex"
-                :base-directory ,orglyth-html-local-root-path
-                :publishing-directory ,orglyth-html-local-root-path
-                :base-extension "org"
-                :preparation-function orglyth-html-create-root-index-org
-                :publishing-function org-html-publish-to-html)
-               ("local-orgfiles"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-local-pc-path
-                :recursive t
-                :base-extension "org"
-                :style ""
-                :auto-sitemap t
-                :sitemap-filename "index.org"
-                :sitemap-title "Sitemap!!"
-                :makeindex t
-                :section-numbers t
-                :publishing-function org-html-publish-to-html)
-               ("local-resources"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-local-pc-path
-                :recursive t
-                :base-extension "jpg\\|gif\\|png\\|css"
-                :publishing-function org-publish-attachment)
+               ,(cons "local-rootindex" (cdr orglyth-html-default-index-option))
+               ,(cons "local-orgfiles" (cdr orglyth-html-default-org-option))
+               ,(cons "local-resources" (cdr orglyth-html-default-resources-option))
                ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
                
                ;; 本番用
-               ("web-orgfiles"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-remote-pc-path
-                :recursive t
-                :base-extension "org"
-                :style ""
-                :auto-sitemap t
-                :sitemap-filename "index.org"
-                :sitemap-title "Sitemap!!"
-                :section-numbers t
-                :publishing-function org-html-publish-to-html)
-               ("web-orgsources"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-remote-sorce-path
-                :recursive t
-                :base-extension "org"
-                :publishing-function org-publish-attachment)
-               ("web-resources"
-                :base-directory ,orglyth-html-local-sorce-path
-                :publishing-directory ,orglyth-html-remote-pc-path
-                :recursive t
-                :base-extension "jpg\\|gif\\|png\\|css"
-                :publishing-function org-publish-attachment)
-               ("website" :components ("web-orgfiles" "web-orgsources" "web-resources"))
-               ))
+               ,(cons "web-rootindex" (cdr orglyth-html-default-index-option))
+               ,(cons "web-orgfiles" (cdr orglyth-html-default-org-option))
+               ,(cons "web-resources" (cdr orglyth-html-default-resources-option))
+               ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
 
 (when orglyth-html-enable-opiton
   (setq org-html-with-latex                 'mathjax
