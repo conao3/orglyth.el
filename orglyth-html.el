@@ -77,6 +77,7 @@ OS X:
 (defvar orglyth-html-pc-dir-name "archives")
 (defvar orglyth-html-amp-dir-name "amp")
 (defvar orglyth-html-mobile-dir-name "mobile")
+(defvar orglyth-html-template-dir-name "parts")
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
@@ -96,7 +97,7 @@ OS X:
   "orglyth-html mobile page path (not amp)")
 
 (defvar orglyth-html-template-parts-path
-  (concat orglyth-html-local-root-path "parts/")
+  (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
   "orglyth-html template parts path.")
 
 ;; remote path
