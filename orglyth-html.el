@@ -144,6 +144,7 @@ OS X:
 <p class=\"date\">Date: %d</p>
 <p class=\"creator\">%c</p>")))
 
+<<<<<<< HEAD
 (defvar orglyth-html-footnotes-section "
 <div id=\"footnotes\">
 <h2 class=\"footnotes\">%s: </h2>
