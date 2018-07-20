@@ -45,6 +45,15 @@ OS X:
   >
   > diskutil unmount sakura    # unmount sshfs")
 
+(defvar orglyth-html-compile-for-pc t
+  "Non-nil means compile html for pc.")
+
+(defvar orglyth-html-compile-for-amp nil
+  "Non-nil means compile html for amp.")
+
+(defvar orglyth-html-compile-for-mobile nil
+  "Non-nil means compile html for mobile.")
+
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
@@ -80,7 +89,7 @@ OS X:
 (defvar orglyth-html-remote-sorce-path
   (if orglyth-html-use-ftp
       (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-source-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+    (concat orglyth-html-remote-root-path orglyth-html-source-dir-Name "/"))
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
@@ -101,15 +110,6 @@ OS X:
     (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
-
-(defvar orglyth-html-compile-for-pc t
-  "Non-nil means compile html for pc.")
-
-(defvar orglyth-html-compile-for-amp nil
-  "Non-nil means compile html for amp.")
-
-(defvar orglyth-html-compile-for-mobile nil
-  "Non-nil means compile html for mobile.")
 
 (defvar orglyth-html-template-parts-path (concat orglyth-html-local-root-path "parts/")
   "orglyth-html template parts path.")
