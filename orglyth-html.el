@@ -125,12 +125,51 @@ OS X:
     (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
+(defvar orglyth-html-preamble-format '(("ja" "
+<div align=right>
+初稿: %d
+</div>
+<div align=right>
+最終更新日: %C
+</div>
+
+<div align=right>
+<a href=\"http://conao3.com/\">ホーム</a> |
+<a href=\"index.html\">文書トップ</a> | <a href=\"sitemap.html\">目次</a>
+</div>
+")))
+
+(defvar orglyth-html-postamble-format '(("ja" "
+<p class=\"author\">Author: %a</p>
+<p class=\"date\">Date: %d</p>
+<p class=\"creator\">%c</p>")))
+
+(defvar orglyth-html-footnotes-section "
+<div id=\"footnotes\">
+<h2 class=\"footnotes\">%s: </h2>
+<div id=\"text-footnotes\">
+%s
+</div>
+</div>")
 
 (defvar orglyth-html-default-org-option
   `("default"
+    ;; https://orgmode.org/manual/Selecting-files.html#Selecting-files
     :base-directory ,orglyth-html-local-sorce-path
     :publishing-directory ,orglyth-html-local-pc-path
     :recursive t
+
+    ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
+    :language "ja"
+    :html-checkbox-type unicode
+    :html-doctype "html5"
+    :html-footnotes-section ,orglyth-html-footnotes-section
+    ;; :html-footnote-format
+    :html-head-include-default-style nli
+    :html-head-include-scripts nil
+    :html-preamble-format ,orglyth-html-preamble-format
+    :html-postamble-format ,orglyth-html-postamble-format
+    
     :base-extension "org"
     :style ""
     :auto-sitemap t
@@ -138,6 +177,8 @@ OS X:
     :sitemap-title "Sitemap!!"
     :makeindex t
     :section-numbers t
+
+    ;; https://orgmode.org/manual/Publishing-action.html#Publishing-action
     :publishing-function org-html-publish-to-html)
   "default options fot orglyth-html")
 
@@ -176,11 +217,7 @@ OS X:
   (setq org-html-with-latex                 'mathjax
         org-html-htmlize-output-type        'css
         org-html-coding-system              'utf-8
-        org-html-doctype                    "html5"
-        org-html-checkbox-type              'unicode
-        org-html-head-include-scripts       nil
-        org-html-head-include-default-style nil)
-  
+        )
   (setq org-html-mathjax-options
         '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
           (scale "100")
@@ -215,36 +252,7 @@ OS X:
 });
 </script>
 <script type=\"text/javascript\"
-        src=\"%PATH\"></script>")
-
-  ;; sew `org-html-preamble-format'
-  (setq org-html-preamble t
-        org-html-preamble-format '(("en" "
-<div align=right>
-初稿: %d
-</div>
-<div align=right>
-最終更新日: %C
-</div>
-
-<div align=right>
-<a href=\"http://conao3.com/\">ホーム</a> |
-<a href=\"index.html\">文書トップ</a> | <a href=\"sitemap.html\">目次</a>
-</div>
-")))
-  
-  ;; see `org-html-postamble-format'
-  (setq org-html-postamble t
-        org-html-postamble-format '(("en" "<p class=\"author\">Author: %a</p>
-<p class=\"date\">Date: %d</p>
-<p class=\"creator\">%c</p>")))
-  
-  (setq org-html-footnotes-section "<div id=\"footnotes\">
-<h2 class=\"footnotes\">%s: </h2>
-<div id=\"text-footnotes\">
-%s
-</div>
-</div>"))
+        src=\"%PATH\"></script>"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
