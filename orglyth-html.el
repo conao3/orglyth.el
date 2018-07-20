@@ -54,14 +54,14 @@ OS X:
 (defvar orglyth-html-ftp-address "/ftp:conao3@conao3.com"
   "orglyth-html ftp address")
 
-(defvar orglyth-html-sorce-dir-name "src")
+(defvar orglyth-html-source-dir-name "src")
 (defvar orglyth-html-pc-dir-name "archives")
 (defvar orglyth-html-amp-dir-name "amp")
 (defvar orglyth-html-mobile-dir-name "mobile")
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
-  (concat orglyth-html-local-root-path orglyth-html-sorce-dir-name "/")
+  (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-local-pc-path
@@ -79,8 +79,8 @@ OS X:
 ;; remote path
 (defvar orglyth-html-remote-sorce-path
   (if orglyth-html-use-ftp
-      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/"))
+      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-source-dir-name "/")
+    (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
