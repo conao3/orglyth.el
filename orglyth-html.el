@@ -78,19 +78,27 @@ OS X:
 
 ;; remote path
 (defvar orglyth-html-remote-sorce-path
-  (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
+  (if orglyth-html-use-ftp
+      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/")
+    (concat orglyth-html-remote-root-path orglyth-html-sorce-dir-name "/"))
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
-  (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
+  (if orglyth-html-use-ftp
+      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
+    (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
   "orglyth-html pc page path")
 
 (defvar orglyth-html-remote-amp-path
-  (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
+  (if orglyth-html-use-ftp
+      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
+    (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
   "orglyth-html amp page path")
 
 (defvar orglyth-html-remote-mobile-path
-  (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
+  (if orglyth-html-use-ftp
+      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
+    (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
 
