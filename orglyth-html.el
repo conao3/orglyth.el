@@ -99,7 +99,7 @@ OS X:
 (defvar orglyth-html-remote-sorce-path
   (if orglyth-html-use-ftp
       (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-source-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-source-dir-Name "/"))
+    (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
