@@ -28,6 +28,11 @@
 
 (require 'ox-html)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  option frags
+;;
+
 (defvar orglyth-html-enable-opiton t
   "When non-nil, enable recommended options in ox-html.")
 
@@ -53,6 +58,11 @@ OS X:
 
 (defvar orglyth-html-compile-for-mobile nil
   "Non-nil means compile html for mobile.")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  custom variables
+;;
 
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
@@ -245,7 +255,10 @@ OS X:
 </div>
 </div>"))
 
-;; functions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  functions
+;;
 
 (defun orglyth-html-write-str (str filename)
   (with-temp-buffer
