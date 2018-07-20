@@ -95,6 +95,10 @@ OS X:
   (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
   "orglyth-html mobile page path (not amp)")
 
+(defvar orglyth-html-template-parts-path
+  (concat orglyth-html-local-root-path "parts/")
+  "orglyth-html template parts path.")
+
 ;; remote path
 (defvar orglyth-html-remote-sorce-path
   (if orglyth-html-use-ftp
@@ -120,9 +124,6 @@ OS X:
     (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
-
-(defvar orglyth-html-template-parts-path (concat orglyth-html-local-root-path "parts/")
-  "orglyth-html template parts path.")
 
 (add-to-list 'org-publish-project-alist
              ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
