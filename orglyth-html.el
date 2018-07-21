@@ -36,9 +36,8 @@
 (defvar orglyth-html-enable-opiton t
   "When non-nil, enable recommended options in ox-html.")
 
-(defvar orglyth-html-use-ftp t
-  "When non-nil, remote root path will be setted
-`orglyth-html-ftp-address':`orglyth-html-remote-root-path'.
+(defvar orglyth-html-use-ftp nil
+  "When non-nil, dest root path will be setted `orglyth-html-ftp-root-path''.
 
 When nil, remote root path will be setted `orglyth-html-remote-root-path'
 `sshfs' (if there are not, install console) can mount ssh folder as normal drive.
@@ -67,10 +66,10 @@ OS X:
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
-(defvar orglyth-html-remote-root-path "~/www/orglyth/"
+(defvar orglyth-html-dest-root-path "~/public_html/orglyth/"
   "orglyth-html remote root path")
 
-(defvar orglyth-html-ftp-address "/ftp:conao3@conao3.com"
+(defvar orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
   "orglyth-html ftp address")
 
 (defvar orglyth-html-source-dir-name "src")
@@ -103,26 +102,26 @@ OS X:
 ;; remote path
 (defvar orglyth-html-remote-sorce-path
   (if orglyth-html-use-ftp
-      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-source-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+      (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
+    (concat orglyth-html-dest-root-path orglyth-html-source-dir-name "/"))
   "orglyth-html sorce path.")
 
 (defvar orglyth-html-remote-pc-path
   (if orglyth-html-use-ftp
-      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-pc-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
+      (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
+    (concat orglyth-html-dest-root-path orglyth-html-pc-dir-name "/"))
   "orglyth-html pc page path")
 
 (defvar orglyth-html-remote-amp-path
   (if orglyth-html-use-ftp
-      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-amp-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+      (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
+    (concat orglyth-html-dest-root-path orglyth-html-amp-dir-name "/"))
   "orglyth-html amp page path")
 
 (defvar orglyth-html-remote-mobile-path
   (if orglyth-html-use-ftp
-      (concat orglyth-html-ftp-address ":" orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")
-    (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
+      (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
+    (concat orglyth-html-dest-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
 (defvar orglyth-html-preamble-format '(("ja" "
@@ -152,6 +151,47 @@ OS X:
 %s
 </div>
 </div>")
+
+(when orglyth-html-enable-opiton
+  (setq org-html-with-latex                 'mathjax
+        org-html-htmlize-output-type        'css
+        org-html-coding-system              'utf-8
+        )
+  (setq org-html-mathjax-options
+        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
+          (scale "100")
+          (align "center")
+          (font "TeX")
+          (linebreaks "false")
+          (autonumber "AMS")
+          (indent "0em")
+          (multlinewidth "85%")
+          (tagindent ".8em")
+          (tagside "right")))
+
+  (setq org-html-mathjax-template
+        "<script type=\"text/x-mathjax-config\">
+    MathJax.Hub.Config({
+        displayAlign: \"%ALIGN\",
+        displayIndent: \"%INDENT\",
+
+        \"HTML-CSS\": { scale: %SCALE,
+                        linebreaks: { automatic: \"%LINEBREAKS\" },
+                        webFont: \"%FONT\"
+                       },
+        SVG: {scale: %SCALE,
+              linebreaks: { automatic: \"%LINEBREAKS\" },
+              font: \"%FONT\"},
+        NativeMML: {scale: %SCALE},
+        TeX: { equationNumbers: {autoNumber: \"%AUTONUMBER\"},
+               MultLineWidth: \"%MULTLINEWIDTH\",
+               TagSide: \"%TAGSIDE\",
+               TagIndent: \"%TAGINDENT\"
+             }
+});
+</script>
+<script type=\"text/javascript\"
+        src=\"%PATH\"></script>"))
 
 (defvar orglyth-html-default-org-option
   `("default"
@@ -213,47 +253,6 @@ OS X:
                             ,(cons "web-orgfiles" (cdr orglyth-html-default-org-option))
                             ,(cons "web-resources" (cdr orglyth-html-default-resources-option))
                             ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
-
-(when orglyth-html-enable-opiton
-  (setq org-html-with-latex                 'mathjax
-        org-html-htmlize-output-type        'css
-        org-html-coding-system              'utf-8
-        )
-  (setq org-html-mathjax-options
-        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
-          (scale "100")
-          (align "center")
-          (font "TeX")
-          (linebreaks "false")
-          (autonumber "AMS")
-          (indent "0em")
-          (multlinewidth "85%")
-          (tagindent ".8em")
-          (tagside "right")))
-
-  (setq org-html-mathjax-template
-        "<script type=\"text/x-mathjax-config\">
-    MathJax.Hub.Config({
-        displayAlign: \"%ALIGN\",
-        displayIndent: \"%INDENT\",
-
-        \"HTML-CSS\": { scale: %SCALE,
-                        linebreaks: { automatic: \"%LINEBREAKS\" },
-                        webFont: \"%FONT\"
-                       },
-        SVG: {scale: %SCALE,
-              linebreaks: { automatic: \"%LINEBREAKS\" },
-              font: \"%FONT\"},
-        NativeMML: {scale: %SCALE},
-        TeX: { equationNumbers: {autoNumber: \"%AUTONUMBER\"},
-               MultLineWidth: \"%MULTLINEWIDTH\",
-               TagSide: \"%TAGSIDE\",
-               TagIndent: \"%TAGINDENT\"
-             }
-});
-</script>
-<script type=\"text/javascript\"
-        src=\"%PATH\"></script>"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
