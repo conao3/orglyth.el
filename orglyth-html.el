@@ -193,11 +193,8 @@ OS X:
 <script type=\"text/javascript\"
         src=\"%PATH\"></script>"))
 
-(defvar orglyth-html-default-org-option
+(defvar orglyth-html-default-html-option
   `("default"
-    ;; https://orgmode.org/manual/Selecting-files.html#Selecting-files
-    :recursive t
-
     ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
     :language "ja"
     :html-checkbox-type unicode
@@ -207,7 +204,14 @@ OS X:
     :html-head-include-default-style nli
     :html-head-include-scripts nil
     :html-preamble-format ,orglyth-html-preamble-format
-    :html-postamble-format ,orglyth-html-postamble-format
+    :html-postamble-format ,orglyth-html-postamble-format))
+
+(defvar orglyth-html-default-org-option
+  `("default"
+    ;; https://orgmode.org/manual/Selecting-files.html#Selecting-files
+    :recursive t
+
+    ,@(cdr orglyth-html-default-html-option)
     
     :base-extension "org"
     :style ""
@@ -229,16 +233,7 @@ OS X:
 
 (defvar orglyth-html-default-index-option
   `("default"
-    ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
-    :language "ja"
-    :html-checkbox-type unicode
-    :html-doctype "html5"
-    :html-footnotes-section ,orglyth-html-footnotes-section
-    ;; :html-footnote-format
-    :html-head-include-default-style nli
-    :html-head-include-scripts nil
-    :html-preamble-format ,orglyth-html-preamble-format
-    :html-postamble-format ,orglyth-html-postamble-format
+    ,@(cdr orglyth-html-default-html-option)
     
     :base-extension "org"
     :preparation-function orglyth-html-create-root-index-org
