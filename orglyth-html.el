@@ -26,6 +26,7 @@
 
 ;; variables
 
+(require 'orglyth)
 (require 'ox-html)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
