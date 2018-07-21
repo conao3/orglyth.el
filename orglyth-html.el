@@ -243,15 +243,33 @@ OS X:
                           ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
                           `(
                             ;; 検証用
-                            ,(cons "local-rootindex" (cdr orglyth-html-default-index-option))
-                            ,(cons "local-orgfiles" (cdr orglyth-html-default-org-option))
-                            ,(cons "local-resources" (cdr orglyth-html-default-resources-option))
+                            ("local-rootindex"
+                             :base-directory ,orglyth-html-local-root-path
+                             :publishing-directory ,orglyth-html-local-root-path
+                             ,@(cdr orglyth-html-default-index-option))
+                            ("local-orgfiles"
+                             :base-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-local-pc-path
+                             ,@(cdr orglyth-html-default-org-option))
+                            ("local-resources"
+                             :base-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-local-pc-path
+                             ,@(cdr orglyth-html-default-resources-option))
                             ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
                             
                             ;; 本番用
-                            ,(cons "web-rootindex" (cdr orglyth-html-default-index-option))
-                            ,(cons "web-orgfiles" (cdr orglyth-html-default-org-option))
-                            ,(cons "web-resources" (cdr orglyth-html-default-resources-option))
+                            ("web-rootindex"
+                             :base-directory ,orglyth-html-local-root-path
+                             :publishing-directory ,orglyth-html-remote-root-path
+                             ,@(cdr orglyth-html-default-index-option))
+                            ("web-orgfiles"
+                             :base-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-remote-pc-path
+                             ,@(cdr orglyth-html-default-org-option))
+                            ("web-resources"
+                             :base-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-remote-pc-path
+                             ,@(cdr orglyth-html-default-resources-option))
                             ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
