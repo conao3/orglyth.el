@@ -235,6 +235,18 @@ OS X:
   `("default"
     :base-directory ,orglyth-html-local-root-path
     :publishing-directory ,orglyth-html-local-root-path
+
+    ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
+    :language "ja"
+    :html-checkbox-type unicode
+    :html-doctype "html5"
+    :html-footnotes-section ,orglyth-html-footnotes-section
+    ;; :html-footnote-format
+    :html-head-include-default-style nli
+    :html-head-include-scripts nil
+    :html-preamble-format ,orglyth-html-preamble-format
+    :html-postamble-format ,orglyth-html-postamble-format
+    
     :base-extension "org"
     :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
