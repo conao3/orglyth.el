@@ -67,7 +67,7 @@ OS X:
 (defvar orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path.")
 
-(defvar orglyth-html-dest-root-path "~/public_html/remote/"
+(defvar orglyth-html-remote-root-path "~/public_html/remote/"
   "orglyth-html remote root path")
 
 (defvar orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
