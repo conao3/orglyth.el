@@ -270,7 +270,13 @@ OS X:
                              :base-directory ,orglyth-html-local-sorce-path
                              :publishing-directory ,orglyth-html-remote-pc-path
                              ,@(cdr orglyth-html-default-resources-option))
-                            ("website" :components ("web-rootindex" "web-orgfiles" "web-resources"))))
+                            ("web-copyorg"
+                             :base-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-local-sorce-path
+                             :recursive t
+                             :base-extension "org"
+                             :publishing-function org-publish-attachment)
+                            ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
