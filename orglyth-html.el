@@ -196,8 +196,6 @@ OS X:
 (defvar orglyth-html-default-org-option
   `("default"
     ;; https://orgmode.org/manual/Selecting-files.html#Selecting-files
-    :base-directory ,orglyth-html-local-sorce-path
-    :publishing-directory ,orglyth-html-local-pc-path
     :recursive t
 
     ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
@@ -225,17 +223,12 @@ OS X:
 
 (defvar orglyth-html-default-resources-option
   `("default"
-    :base-directory ,orglyth-html-local-sorce-path
-    :publishing-directory ,orglyth-html-local-pc-path
     :recursive t
     :base-extension "jpg\\|gif\\|png\\|css"
     :publishing-function org-publish-attachment))
 
 (defvar orglyth-html-default-index-option
   `("default"
-    :base-directory ,orglyth-html-local-root-path
-    :publishing-directory ,orglyth-html-local-root-path
-
     ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
     :language "ja"
     :html-checkbox-type unicode
