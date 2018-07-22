@@ -201,7 +201,7 @@ OS X:
     :html-doctype "html5"
     :html-footnotes-section ,orglyth-html-footnotes-section
     ;; :html-footnote-format
-    :html-head-include-default-style nli
+    :html-head-include-default-style nil
     :html-head-include-scripts nil
     :html-preamble-format ,orglyth-html-preamble-format
     :html-postamble-format ,orglyth-html-postamble-format))
@@ -234,7 +234,8 @@ OS X:
 (defvar orglyth-html-default-index-option
   `("default"
     ,@(cdr orglyth-html-default-html-option)
-    
+
+    :auto-sitemap nil
     :base-extension "org"
     :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
@@ -272,7 +273,7 @@ OS X:
                              ,@(cdr orglyth-html-default-resources-option))
                             ("web-copyorg"
                              :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-local-sorce-path
+                             :publishing-directory ,orglyth-html-remote-sorce-path
                              :recursive t
                              :base-extension "org"
                              :publishing-function org-publish-attachment)
@@ -318,7 +319,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                          (progn (warn "not set :publishing-directory, exit create-root-index-org")
                                 (throw 'orglyth-error "not set variable"))))
            (title (or (plist-get plist :sitemap-title)))
-           (filepath (concat base-dir "/index.org")))
+           (filepath (concat base-dir "/index.inc")))
       (orglyth-html-write-str (concat
                                "#+title"
                                title)
