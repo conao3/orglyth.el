@@ -156,6 +156,7 @@ OS X:
   (setq org-html-with-latex                 'mathjax
         org-html-htmlize-output-type        'css
         org-html-coding-system              'utf-8
+        org-publish-timestamp-directory     (concat org-directory ".org-timestamps/")
         )
   (setq org-html-mathjax-options
         '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
