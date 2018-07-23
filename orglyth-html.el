@@ -320,7 +320,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                          (progn (warn "not set :publishing-directory, exit create-root-index-org")
                                 (throw 'orglyth-error "not set variable"))))
            (title (or (plist-get plist :sitemap-title)))
-           (filepath (concat base-dir "/index.inc")))
+           (filepath (concat base-dir "index.inc")))
       (orglyth-html-write-str (concat
                                "#+title"
                                title)
