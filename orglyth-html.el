@@ -164,6 +164,46 @@ OS X:
     (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))
   "orglyth-html mobile page path (not amp)")
 
+;; local path
+(defun orglyth-html-reset-variables (var value)
+  "orglyth-html reset variables."
+  (set var value)
+  (setq orglyth-html-local-sorce-path
+        (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
+
+        orglyth-html-local-pc-path
+        (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
+
+        orglyth-html-local-amp-path
+        (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
+
+        orglyth-html-local-mobile-path
+        (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
+
+        orglyth-html-template-parts-path
+        (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
+
+        ;; remote path
+        orglyth-html-remote-sorce-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+
+        orglyth-html-remote-pc-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
+
+        orglyth-html-remote-amp-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+
+        orglyth-html-remote-mobile-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
+
 (defvar orglyth-html-preamble-format '(("ja" "
 <div align=right>
 初稿: %d
