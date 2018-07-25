@@ -91,7 +91,7 @@ OS X:
   :type 'string
   :set #'orglyth-html-reset-variables)
 
-(defcustom orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
+(defcustom orglyth-html-ftp-root-path "/ftp:example@example.com:~/www/orglyth/"
   "orglyth-html ftp address"
   :group 'orglyth-html
   :type 'string
