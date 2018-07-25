@@ -56,7 +56,8 @@ OS X:
   >
   > diskutil unmount sakura    # unmount sshfs"
   :group 'orglyth-html
-  :type 'boolean)
+  :type 'boolean
+  :set 'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-compile-for-pc t
   "Non-nil means compile html for pc."
@@ -81,42 +82,50 @@ OS X:
 (defcustom orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path."
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-remote-root-path "~/public_html/remote/"
   "orglyth-html remote root path"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
   "orglyth-html ftp address"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-source-dir-name "src"
   "orglyth-html source dir name"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-pc-dir-name "archives"
   "orglyth-html export for pc dir name"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-amp-dir-name "amp"
   "orglyth-html export for amp dir name"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-mobile-dir-name "mobile"
   "orglyth-html export for mobile dir name"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 (defcustom orglyth-html-template-dir-name "parts"
   "orgluth-html template dir name"
   :group 'orglyth-html
-  :type 'string)
+  :type 'string
+  :set #'orglyth-html-reset-variables)
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
