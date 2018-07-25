@@ -20,7 +20,31 @@
 
 ;;; Commentary:
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;      Recommended settings below.
+;;
+;;
+;; (use-package el-get :ensure t
+;;   :if (or (executable-find "git")
+;;           (message "'git' couldn't found.  el-get can't download any packages")
+;;           (defmacro el-get (&rest arg) nil))
+;;   :config
+;;   (setq el-get-git-shallow-clone  t
+;;         el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/"))
 ;; 
+;; (use-package orglyth
+;;     :init (el-get-bundle conao/orglyth)
+;;     :config
+;;     (use-package orglyth-html
+;;       :config
+;;       (setq orglyth-html-enable-opiton    t
+;;             orglyth-html-use-ftp          nil
+;;             orglyth-html-local-root-path  "~/public_html/orglyth/"
+;;             orglyth-html-remote-root-path "~/public_html/remote/"
+;;             orglyth-html-ftp-root-path    "/ftp:conao3@conao3.com:~/www/orglyth/")
+;;       (orglyth-html-reset-variables)))
+;;
 
 ;;; Code:
 
