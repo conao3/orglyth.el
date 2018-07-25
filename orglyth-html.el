@@ -34,10 +34,16 @@
 ;;  option frags
 ;;
 
-(defvar orglyth-html-enable-opiton t
-  "When non-nil, enable recommended options in ox-html.")
+(defgroup orglyth-html nil
+  "A orglyth-html publish your web site using orgmode."
+  :group 'orglyth)
 
-(defvar orglyth-html-use-ftp nil
+(defcustom orglyth-html-enable-opiton t
+  "When non-nil, enable recommended options in ox-html."
+  :group 'orglyth-html
+  :type 'boolean)
+
+(defcustom orglyth-html-use-ftp nil
   "When non-nil, dest root path will be setted `orglyth-html-ftp-root-path''.
 
 When nil, remote root path will be setted `orglyth-html-remote-root-path'
@@ -48,36 +54,69 @@ OS X:
   > mkdir sakura
   > sshfs conao3@conao3.sakura.ne.jp:/home/conao3/www/orglyth sakura
   >
-  > diskutil unmount sakura    # unmount sshfs")
+  > diskutil unmount sakura    # unmount sshfs"
+  :group 'orglyth-html
+  :type 'boolean)
 
-(defvar orglyth-html-compile-for-pc t
-  "Non-nil means compile html for pc.")
+(defcustom orglyth-html-compile-for-pc t
+  "Non-nil means compile html for pc."
+  :group 'orglyth-html
+  :type 'boolean)
 
-(defvar orglyth-html-compile-for-amp nil
-  "Non-nil means compile html for amp.")
+(defcustom orglyth-html-compile-for-amp nil
+  "Non-nil means compile html for amp."
+  :group 'orglyth-html
+  :type 'boolean)
 
-(defvar orglyth-html-compile-for-mobile nil
-  "Non-nil means compile html for mobile.")
+(defcustom orglyth-html-compile-for-mobile nil
+  "Non-nil means compile html for mobile."
+  :group 'orglyth-html
+  :type 'boolean)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  custom variables
 ;;
 
-(defvar orglyth-html-local-root-path "~/public_html/orglyth/"
-  "orglyth-html sorce root path.")
+(defcustom orglyth-html-local-root-path "~/public_html/orglyth/"
+  "orglyth-html sorce root path."
+  :group 'orglyth-html
+  :type 'string)
 
-(defvar orglyth-html-remote-root-path "~/public_html/remote/"
-  "orglyth-html remote root path")
+(defcustom orglyth-html-remote-root-path "~/public_html/remote/"
+  "orglyth-html remote root path"
+  :group 'orglyth-html
+  :type 'string)
 
-(defvar orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
-  "orglyth-html ftp address")
+(defcustom orglyth-html-ftp-root-path "/ftp:conao3@conao3.com:~/www/orglyth/"
+  "orglyth-html ftp address"
+  :group 'orglyth-html
+  :type 'string)
 
-(defvar orglyth-html-source-dir-name "src")
-(defvar orglyth-html-pc-dir-name "archives")
-(defvar orglyth-html-amp-dir-name "amp")
-(defvar orglyth-html-mobile-dir-name "mobile")
-(defvar orglyth-html-template-dir-name "parts")
+(defcustom orglyth-html-source-dir-name "src"
+  "orglyth-html source dir name"
+  :group 'orglyth-html
+  :type 'string)
+
+(defcustom orglyth-html-pc-dir-name "archives"
+  "orglyth-html export for pc dir name"
+  :group 'orglyth-html
+  :type 'string)
+
+(defcustom orglyth-html-amp-dir-name "amp"
+  "orglyth-html export for amp dir name"
+  :group 'orglyth-html
+  :type 'string)
+
+(defcustom orglyth-html-mobile-dir-name "mobile"
+  "orglyth-html export for mobile dir name"
+  :group 'orglyth-html
+  :type 'string)
+
+(defcustom orglyth-html-template-dir-name "parts"
+  "orgluth-html template dir name"
+  :group 'orglyth-html
+  :type 'string)
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
