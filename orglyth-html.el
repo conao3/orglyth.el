@@ -38,7 +38,7 @@
   "A orglyth-html publish your web site using orgmode."
   :group 'orglyth)
 
-(defcustom orglyth-html-enable-opiton t
+(defcustom orglyth-html-enable-opiton nil
   "When non-nil, enable recommended options in ox-html."
   :group 'orglyth-html
   :type 'boolean)
