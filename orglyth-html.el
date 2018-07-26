@@ -102,44 +102,49 @@
 ;;  setter
 ;;
 
+(defvar orglyth-html-loaded nil
+  "Manage orglyth-html loaded.
+This variable is internal variable for developer.")
+
 (defun orglyth-html-reset-variables (var value)
   "orglyth-html reset variables."
   (set var value)
-  (setq orglyth-html-local-sorce-path
-        (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
+  (when orglyth-html-loaded
+    (setq orglyth-html-local-sorce-path
+          (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
 
-        orglyth-html-local-pc-path
-        (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
+          orglyth-html-local-pc-path
+          (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
 
-        orglyth-html-local-amp-path
-        (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
+          orglyth-html-local-amp-path
+          (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
 
-        orglyth-html-local-mobile-path
-        (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
+          orglyth-html-local-mobile-path
+          (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
 
-        orglyth-html-template-parts-path
-        (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
+          orglyth-html-template-parts-path
+          (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
 
-        ;; remote path
-        orglyth-html-remote-sorce-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+          ;; remote path
+          orglyth-html-remote-sorce-path
+          (if orglyth-html-use-ftp
+              (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
+            (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
 
-        orglyth-html-remote-pc-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
+          orglyth-html-remote-pc-path
+          (if orglyth-html-use-ftp
+              (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
+            (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
 
-        orglyth-html-remote-amp-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+          orglyth-html-remote-amp-path
+          (if orglyth-html-use-ftp
+              (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
+            (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
 
-        orglyth-html-remote-mobile-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
+          orglyth-html-remote-mobile-path
+          (if orglyth-html-use-ftp
+              (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
+            (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -580,6 +585,9 @@ Default for SITEMAP-FILENAME is 'sitemap.org'."
                                      "]]\n"))))))))
       (save-buffer))
     (or visiting (kill-buffer sitemap-buffer))))
+
+;; turn on frg, loaded.
+(setq orglyth-html-loaded t)
 
 (provide 'orglyth-html)
 ;;;orglyth-html.el ends here
