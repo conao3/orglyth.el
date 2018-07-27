@@ -106,45 +106,48 @@
   "Manage orglyth-html loaded.
 This variable is internal variable for developer.")
 
-(defun orglyth-html-reset-variables (var value)
+(defun orglyth-html-reset-variables-with-setter (var value)
   "orglyth-html reset variables."
   (set var value)
   (when orglyth-html-loaded
-    (setq orglyth-html-local-sorce-path
-          (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
+    (orglyth-html-reset-variables)))
 
-          orglyth-html-local-pc-path
-          (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
+(defun orglyth-html-reset-variables ()
+  (setq orglyth-html-local-sorce-path
+        (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
 
-          orglyth-html-local-amp-path
-          (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
+        orglyth-html-local-pc-path
+        (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
 
-          orglyth-html-local-mobile-path
-          (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
+        orglyth-html-local-amp-path
+        (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
 
-          orglyth-html-template-parts-path
-          (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
+        orglyth-html-local-mobile-path
+        (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
 
-          ;; remote path
-          orglyth-html-remote-sorce-path
-          (if orglyth-html-use-ftp
-              (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
-            (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+        orglyth-html-template-parts-path
+        (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
 
-          orglyth-html-remote-pc-path
-          (if orglyth-html-use-ftp
-              (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
-            (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
+        ;; remote path
+        orglyth-html-remote-sorce-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
 
-          orglyth-html-remote-amp-path
-          (if orglyth-html-use-ftp
-              (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
-            (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+        orglyth-html-remote-pc-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
 
-          orglyth-html-remote-mobile-path
-          (if orglyth-html-use-ftp
-              (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
-            (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")))))
+        orglyth-html-remote-amp-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+
+        orglyth-html-remote-mobile-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -174,7 +177,7 @@ OS X:
   > diskutil unmount sakura    # unmount sshfs"
   :group 'orglyth-html
   :type 'boolean
-  :set 'orglyth-html-reset-variables)
+  :set 'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-compile-for-pc t
   "Non-nil means compile html for pc."
@@ -200,49 +203,49 @@ OS X:
   "orglyth-html sorce root path."
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-remote-root-path "~/public_html/remote/"
   "orglyth-html remote root path"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-ftp-root-path "/ftp:example@example.com:~/www/orglyth/"
   "orglyth-html ftp address"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-source-dir-name "src"
   "orglyth-html source dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-pc-dir-name "archives"
   "orglyth-html export for pc dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-amp-dir-name "amp"
   "orglyth-html export for amp dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-mobile-dir-name "mobile"
   "orglyth-html export for mobile dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 (defcustom orglyth-html-template-dir-name "parts"
   "orgluth-html template dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables)
+  :set #'orglyth-html-reset-variables-with-setter)
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
