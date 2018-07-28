@@ -58,6 +58,15 @@
   linkcolor=blue
 }
 ")
+
+  (setq org-latex-pdf-process '("uplatex %f"
+                                "uplatex %f"
+                                "bibtex %b"
+                                "uplatex %f"
+                                "uplatex %f"
+                                "dvipdfmx %b.dvi"
+                                ;; "find . -type f -name '*.xbb' -print0 | xargs -0 rm"
+                                ))
   
   (add-list-to-list 'org-latex-logfiles-extensions '("dvi" "bbl"))
   
