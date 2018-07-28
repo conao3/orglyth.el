@@ -409,44 +409,45 @@ OS X:
     :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
 
-(orglyth-add-list-to-list 'org-publish-project-alist
-                          ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
-                          `(
-                            ;; 検証用
-                            ("local-rootindex"
-                             :base-directory ,orglyth-html-local-root-path
-                             :publishing-directory ,orglyth-html-local-root-path
-                             ,@(cdr orglyth-html-default-index-option))
-                            ("local-orgfiles"
-                             :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-local-pc-path
-                             ,@(cdr orglyth-html-default-org-option))
-                            ("local-resources"
-                             :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-local-pc-path
-                             ,@(cdr orglyth-html-default-resources-option))
-                            ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
-                            
-                            ;; 本番用
-                            ("web-rootindex"
-                             :base-directory ,orglyth-html-local-root-path
-                             :publishing-directory ,orglyth-html-remote-root-path
-                             ,@(cdr orglyth-html-default-index-option))
-                            ("web-orgfiles"
-                             :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-remote-pc-path
-                             ,@(cdr orglyth-html-default-org-option))
-                            ("web-resources"
-                             :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-remote-pc-path
-                             ,@(cdr orglyth-html-default-resources-option))
-                            ("web-copyorg"
-                             :base-directory ,orglyth-html-local-sorce-path
-                             :publishing-directory ,orglyth-html-remote-sorce-path
-                             :recursive t
-                             :base-extension "org"
-                             :publishing-function org-publish-attachment)
-                            ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg"))))
+(orglyth-add-list-to-list
+ 'org-publish-project-alist
+ ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
+ `(
+   ;; 検証用
+   ("local-rootindex"
+    :base-directory ,orglyth-html-local-root-path
+    :publishing-directory ,orglyth-html-local-root-path
+    ,@(cdr orglyth-html-default-index-option))
+   ("local-orgfiles"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-local-pc-path
+    ,@(cdr orglyth-html-default-org-option))
+   ("local-resources"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-local-pc-path
+    ,@(cdr orglyth-html-default-resources-option))
+   ("local" :components ("local-rootindex" "local-orgfiles" "local-resources"))
+
+   ;; 本番用
+   ("web-rootindex"
+    :base-directory ,orglyth-html-local-root-path
+    :publishing-directory ,orglyth-html-remote-root-path
+    ,@(cdr orglyth-html-default-index-option))
+   ("web-orgfiles"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-remote-pc-path
+    ,@(cdr orglyth-html-default-org-option))
+   ("web-resources"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-remote-pc-path
+    ,@(cdr orglyth-html-default-resources-option))
+   ("web-copyorg"
+    :base-directory ,orglyth-html-local-sorce-path
+    :publishing-directory ,orglyth-html-remote-sorce-path
+    :recursive t
+    :base-extension "org"
+    :publishing-function org-publish-attachment)
+   ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
