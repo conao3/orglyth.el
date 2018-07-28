@@ -385,7 +385,7 @@ OS X:
     :base-extension "org"
     :style ""
     :auto-sitemap t
-    :sitemap-filename "index.org"
+    :sitemap-filename "sitemap.inc"
     :sitemap-title "Sitemap!!"
     :makeindex t
     :section-numbers t
