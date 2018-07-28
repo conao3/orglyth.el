@@ -60,7 +60,23 @@
                          ("\\subsection{%s}" . "\\subsection*{%s}")
                          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                          ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
+                         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+  
+  (when (executable-find "kpsewhich")
+      ;; unicode code include
+      (unless (string= (shell-command-to-string "kpsewhich jlisting.sty") "")
+        (add-list-to-list 'org-latex-packages-alist
+                          '(("" "jlisting")) t)
+        (setq org-latex-listings         'listings
+              org-latex-listings-options nil))
+      
+      (unless (string= (shell-command-to-string "kpsewhich listingsextra.sty") "")
+        (add-list-to-list 'org-latex-packages-alist
+                          '(("" "listingsextra")) t))
+      
+      (unless (string= (shell-command-to-string "kpsewhich listingssetup.sty") "")
+        (add-list-to-list 'org-latex-packages-alist
+                          '(("" "listingssetup")) t))))
 
 
 (provide 'orglyth-latex)
