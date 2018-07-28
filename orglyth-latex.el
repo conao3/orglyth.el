@@ -27,6 +27,9 @@
 (require 'orglyth)
 (require 'ox-latex)
 
+(defgroup orglyth-latex nil
+  "A orglyth-latex publish your latex file."
+  :group 'orglyth)
 
 (provide 'orglyth-latex)
 ;;; orglyth-latex.el ends here
