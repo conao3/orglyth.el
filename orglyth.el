@@ -24,6 +24,10 @@
 
 ;;; Code:
 
+(defgroup orglyth nil
+  "A orglyth settings org."
+  :group 'org)
+
 (defmacro orglyth-add-list-to-list (dest-lst source-lst &optional append)
   "Add to DEST-LST for SOURCE-LST in a destructive.
 Defaltly, add at the beginning of the list, but when APPEND is non-nil,
