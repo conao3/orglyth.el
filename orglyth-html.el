@@ -386,7 +386,6 @@ OS X:
     :style ""
     :auto-sitemap t
     :sitemap-filename "sitemap.inc"
-    :sitemap-title "Sitemap!!"
     :makeindex t
     :section-numbers t
 
