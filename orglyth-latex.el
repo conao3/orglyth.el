@@ -44,6 +44,7 @@
 
 (when orglyth-latex-enable-opiton
   (setq org-latex-default-class "org-jsarticle")
+  (add-list-to-list 'org-latex-logfiles-extensions '("dvi" "bbl"))
   
   (add-list-to-list 'org-latex-classes
                     '(("org-jsarticle"
