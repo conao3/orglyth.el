@@ -97,6 +97,10 @@
 (require 'orglyth)
 (require 'ox-html)
 
+(defgroup orglyth-html nil
+  "A orglyth-html publish your web site using orgmode."
+  :group 'orglyth)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  setter
@@ -153,10 +157,6 @@ This variable is internal variable for developer.")
 ;;
 ;;  option frags
 ;;
-
-(defgroup orglyth-html nil
-  "A orglyth-html publish your web site using orgmode."
-  :group 'orglyth)
 
 (defcustom orglyth-html-enable-opiton nil
   "When non-nil, enable recommended options in ox-html."
