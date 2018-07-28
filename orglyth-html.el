@@ -95,6 +95,7 @@
 ;; variables
 
 (require 'orglyth)
+(require 'org)
 (require 'ox-publish)
 (require 'ox-html)
 
