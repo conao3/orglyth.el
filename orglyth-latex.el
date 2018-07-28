@@ -20,7 +20,28 @@
 
 ;;; Commentary:
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;      Recommended settings below.
+;;
+;;
+;; (use-package el-get :ensure t
+;;   :if (or (executable-find "git")
+;;           (message "'git' couldn't found.  el-get can't download any packages")
+;;           (defmacro el-get (&rest arg) nil))
+;;   :config
+;;   (setq el-get-git-shallow-clone  t
+;;         el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/"))
 ;; 
+;; (use-package orglyth
+;;   :init (el-get-bundle conao/orglyth)
+;;   :config
+;;   (use-package orglyth-latex
+;;     :config
+;;     (setq orglyth-latex-enable-opiton t)
+;;     (use-package ox-latex-subfigure
+;;       :init (el-get-bundle linktohack/ox-latex-subfigure))))
+
 
 ;;; Code:
 
