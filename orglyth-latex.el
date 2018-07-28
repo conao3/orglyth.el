@@ -32,6 +32,16 @@
   "A orglyth-latex publish your latex file."
   :group 'orglyth)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  option frags
+;;
+
+(defcustom orglyth-latex-enable-opiton nil
+  "When non-nil, enable recommended options in ox-latex."
+  :group 'orglyth-html
+  :type 'boolean)
+
 (provide 'orglyth-latex)
 ;;; orglyth-latex.el ends here
 
