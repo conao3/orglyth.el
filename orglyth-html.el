@@ -95,6 +95,7 @@
 ;; variables
 
 (require 'orglyth)
+(require 'ox-publish)
 (require 'ox-html)
 
 (defgroup orglyth-html nil
