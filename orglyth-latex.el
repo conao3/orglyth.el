@@ -68,9 +68,9 @@
                                 ;; "find . -type f -name '*.xbb' -print0 | xargs -0 rm"
                                 ))
   
-  (add-list-to-list 'org-latex-logfiles-extensions '("dvi" "bbl"))
+  (orglyth-add-list-to-list 'org-latex-logfiles-extensions '("dvi" "bbl"))
   
-  (add-list-to-list 'org-latex-classes
+  (orglyth-add-list-to-list 'org-latex-classes
                     '(("org-jsarticle"
                        "\\documentclass[uplatex, dvipdfmx]{jsarticle}"
                        ("\\section{%s}" . "\\section*{%s}")
@@ -87,7 +87,7 @@
                        ("\\paragraph{%s}" . "\\paragraph*{%s}")
                        ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
-  (add-list-to-list 'org-latex-packages-alist
+  (orglyth-add-list-to-list 'org-latex-packages-alist
                     '(
                         ;;;;;;;;;;;;;;;;;;;;
                       ;; org depends default packeages
@@ -134,19 +134,19 @@ top=2truecm, bottom=2truecm, left=1.5truecm, right=1.5truecm, includefoot}"
   (when (executable-find "kpsewhich")
     ;; unicode code include
     (unless (string= (shell-command-to-string "kpsewhich jlisting.sty") "")
-      (add-list-to-list 'org-latex-packages-alist
+      (orglyth-add-list-to-list 'org-latex-packages-alist
                         '(("" "jlisting")) t)
       (setq org-latex-listings         'listings
             org-latex-listings-options nil))
     
     (unless (string= (shell-command-to-string "kpsewhich listingsextra.sty") "")
-      (add-list-to-list 'org-latex-packages-alist
+      (orglyth-add-list-to-list 'org-latex-packages-alist
                         '(("" "listingsextra")) t))
     
     (unless (string= (shell-command-to-string "kpsewhich listingssetup.sty") "")
-      (add-list-to-list 'org-latex-packages-alist
+      (orglyth-add-list-to-list 'org-latex-packages-alist
                         '(("" "listingssetup")) t)))
-  (add-list-to-list 'org-latex-listings-langs '((shell "bash")
+  (orglyth-add-list-to-list 'org-latex-listings-langs '((shell "bash")
                                                 ))
   )
 
