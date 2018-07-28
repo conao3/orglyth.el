@@ -44,6 +44,21 @@
 
 (when orglyth-latex-enable-opiton
   (setq org-latex-default-class "org-jsarticle")
+
+  (setq org-latex-hyperref-template
+  "\\hypersetup{
+  pdfauthor={%a},
+  pdftitle={%t},
+  pdfkeywords={%k},
+  pdfsubject={%d},
+  pdfcreator={%c},
+  pdflang={%L},
+  pdfborder={0 0 0},
+  colorlinks=false,
+  linkcolor=blue
+}
+")
+  
   (add-list-to-list 'org-latex-logfiles-extensions '("dvi" "bbl"))
   
   (add-list-to-list 'org-latex-classes
