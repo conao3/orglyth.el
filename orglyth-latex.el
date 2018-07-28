@@ -86,6 +86,50 @@
                        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                        ("\\paragraph{%s}" . "\\paragraph*{%s}")
                        ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+  (add-list-to-list 'org-latex-packages-alist
+                    '(
+                        ;;;;;;;;;;;;;;;;;;;;
+                      ;; org depends default packeages
+                      
+                      ("utf8" "inputenc")       ;; enable unicode input
+                      ("T1" "fontenc")          ;; enable unicode output
+                      ("" "graphicx")           ;; insert figures
+                      ("" "grffile")            ;; enable strange filenames
+                      ("" "longtable")          ;; long table with page break
+                      ("" "wrapfig")            ;; text wrap figure
+                      ("" "rotating")           ;; text rotate
+                      ("normalem" "ulem")       ;; text decoration
+                      ("" "textcomp")           ;; symbol font
+                      ("" "capt-of")            ;; add caption at not float env
+                      ("" "hyperref")           ;; hyperlink
+                      ("" "amsmath, amssymb")   ;; math packages
+
+                        ;;;;;;;;;;;;;;;;;;;;
+                      ;; my optionnal packages
+                      
+                      ("" "pxjahyper")          ;; pdf bookmark label
+                      ("" "listings")           ;; code include
+                      ("" "fancyhdr")           ;; header, footer editing
+                      ("" "mdframed")           ;; framing
+                      ("" "here")               ;; figure put here
+                      ("" "lscape")             ;; landscape text, portrait page
+                      ("" "physics")            ;; math useful macros
+                      ("" "okumacro")           ;; useful macros by Dr.okumura
+                      ("" "framed")             ;; framing
+                      ("" "xcolor")             ;; pick color
+                      ("" "multicol")           ;; multi columns
+                      ("" "newtxtext")          ;; tx font
+                      ("" "newtxmath")          ;; tx math font
+                      ("" "geometry")           ;; page layout
+                      ("" "mathtools")          ;; enhance the appearance for amsmath
+                      ("" "subcaption")         ;; multiple figures
+                      "\\geometry{
+top=2truecm, bottom=2truecm, left=1.5truecm, right=1.5truecm, includefoot}"
+                      "\\pagestyle{fancy}"
+                      "\\rhead{\\thepage{}}"
+                      "\\mathtoolsset{showonlyrefs=true}"
+                      ))
   
   (when (executable-find "kpsewhich")
     ;; unicode code include
