@@ -42,6 +42,27 @@
   :group 'orglyth-html
   :type 'boolean)
 
+(when orglyth-latex-enable-opiton
+  (setq org-latex-default-class "org-jsarticle")
+  
+  (add-list-to-list 'org-latex-classes
+                      '(("org-jsarticle"
+                         "\\documentclass[uplatex, dvipdfmx]{jsarticle}"
+                         ("\\section{%s}" . "\\section*{%s}")
+                         ("\\subsection{%s}" . "\\subsection*{%s}")
+                         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+                        
+                        ("org-beamer"
+                         "\\documentclass[dvipdfmx,12pt]{beamer}"
+                         ("\\section{%s}" . "\\section*{%s}")
+                         ("\\subsection{%s}" . "\\subsection*{%s}")
+                         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
+
+
 (provide 'orglyth-latex)
 ;;; orglyth-latex.el ends here
 
