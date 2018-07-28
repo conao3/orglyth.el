@@ -25,7 +25,6 @@
 ;;; Code:
 
 (require 'orglyth)
-(require 'org)
 (require 'ox-latex)
 
 (defgroup orglyth-latex nil

@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'org)
+
 (defgroup orglyth nil
   "A orglyth settings org."
   :group 'org)
