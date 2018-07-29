@@ -495,6 +495,25 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                                title)
                               filepath))))
 
+(defun orglyth-html-org-publish-file-before (filename &optional project no-cache)
+  "Before advice on org-publish-file."
+  ;; (defun org-publish-file (filename &optional project no-cache)
+  ;;   "Publish file FILENAME from PROJECT.
+  ;; If NO-CACHE is not nil, do not initialize `org-publish-cache'.
+  ;; This is needed, since this function is used to publish single
+  ;; files, when entire projects are published (see
+  ;; `org-publish-projects').")
+
+  (let ((plist (cdr project)))
+    ;; (message (format "%s" project))
+    (message "%s" filename)
+    (message "%s" (plist-get plist :base-directory))
+    )
+  ;;(message (plist-get plist :base-directory))
+  )
+(advice-add 'org-publish-file :before #'orglyth-html-org-publish-file-before)
+;; (advice-remove 'org-publish-file 'orglyth-html-org-publish-file-before)
+
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
 (defun dav-org-publish-org-sitemap (project &optional sitemap-filename)
   "Create a sitemap of pages in set defined by PROJECT.
