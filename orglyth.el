@@ -20,10 +20,11 @@
 
 ;;; Commentary:
 
-;; 
+;; depends on rejeep/f
 
 ;;; Code:
 
+(require 'f)
 (require 'org)
 
 (defgroup orglyth nil
