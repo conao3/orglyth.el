@@ -62,6 +62,8 @@
   :group 'orglyth-html
   :type 'boolean)
 
+(defun orglyth-latex-init ()
+  "Set various variables.  When `orglyth-latex-enable-option' is t."
 (when orglyth-latex-enable-opiton
   (setq org-latex-default-class "org-jsarticle")
 
@@ -169,7 +171,7 @@ top=2truecm, bottom=2truecm, left=1.5truecm, right=1.5truecm, includefoot}"
                                 '(("" "listingssetup")) t)))
   (orglyth-add-list-to-list 'org-latex-listings-langs '((shell "bash")
                                                         ))
-  )
+  ))
 
 
 (provide 'orglyth-latex)
