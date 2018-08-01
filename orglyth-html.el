@@ -373,6 +373,7 @@ OS X:
      ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg")))))
 
 (defun orglyth-html-init ()
+  "Init, reset orglyth-html internal variables."
   (setq orglyth-html-local-sorce-path
         (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
 
