@@ -111,13 +111,13 @@
   "Manage orglyth-html loaded.
 This variable is internal variable for developer.")
 
-(defun orglyth-html-reset-variables-with-setter (var value)
+(defun orglyth-html-init-with-setter (var value)
   "orglyth-html reset variables."
   (set var value)
   (when orglyth-html-loaded
-    (orglyth-html-reset-variables)))
+    (orglyth-html-init)))
 
-(defun orglyth-html-reset-variables ()
+(defun orglyth-html-init ()
   (setq orglyth-html-local-sorce-path
         (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
 
@@ -178,12 +178,12 @@ OS X:
   > diskutil unmount sakura    # unmount sshfs"
   :group 'orglyth-html
   :type 'boolean
-  :set 'orglyth-html-reset-variables-with-setter)
+  :set 'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-compile-for-pc t
   "Non-nil means compile html for pc."
   :group 'orglyth-html
-  :type 'boolean)
+  :type 'Boolean)
 
 (defcustom orglyth-html-compile-for-amp nil
   "Non-nil means compile html for amp."
@@ -204,49 +204,49 @@ OS X:
   "orglyth-html sorce root path."
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-remote-root-path "~/public_html/remote/"
   "orglyth-html remote root path"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-ftp-root-path "/ftp:example@example.com:~/www/orglyth/"
   "orglyth-html ftp address"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-source-dir-name "src"
   "orglyth-html source dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-pc-dir-name "archives"
   "orglyth-html export for pc dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-amp-dir-name "amp"
   "orglyth-html export for amp dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-mobile-dir-name "mobile"
   "orglyth-html export for mobile dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 (defcustom orglyth-html-template-dir-name "parts"
   "orgluth-html template dir name"
   :group 'orglyth-html
   :type 'string
-  :set #'orglyth-html-reset-variables-with-setter)
+  :set #'orglyth-html-init-with-setter)
 
 ;; local path
 (defvar orglyth-html-local-sorce-path
