@@ -117,43 +117,6 @@ This variable is internal variable for developer.")
   (when orglyth-html-loaded
     (orglyth-html-init)))
 
-(defun orglyth-html-init ()
-  (setq orglyth-html-local-sorce-path
-        (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
-
-        orglyth-html-local-pc-path
-        (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
-
-        orglyth-html-local-amp-path
-        (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
-
-        orglyth-html-local-mobile-path
-        (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
-
-        orglyth-html-template-parts-path
-        (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
-
-        ;; remote path
-        orglyth-html-remote-sorce-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
-
-        orglyth-html-remote-pc-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
-
-        orglyth-html-remote-amp-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
-
-        orglyth-html-remote-mobile-path
-        (if orglyth-html-use-ftp
-            (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  option frags
@@ -448,6 +411,43 @@ OS X:
     :base-extension "org"
     :publishing-function org-publish-attachment)
    ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg"))))
+
+(defun orglyth-html-init ()
+  (setq orglyth-html-local-sorce-path
+        (concat orglyth-html-local-root-path orglyth-html-source-dir-name "/")
+
+        orglyth-html-local-pc-path
+        (concat orglyth-html-local-root-path orglyth-html-pc-dir-name "/")
+
+        orglyth-html-local-amp-path
+        (concat orglyth-html-local-root-path orglyth-html-amp-dir-name "/")
+
+        orglyth-html-local-mobile-path
+        (concat orglyth-html-local-root-path orglyth-html-mobile-dir-name "/")
+
+        orglyth-html-template-parts-path
+        (concat orglyth-html-local-root-path orglyth-html-template-dir-name "/")
+
+        ;; remote path
+        orglyth-html-remote-sorce-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-source-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-source-dir-name "/"))
+
+        orglyth-html-remote-pc-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-pc-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-pc-dir-name "/"))
+
+        orglyth-html-remote-amp-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-amp-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-amp-dir-name "/"))
+
+        orglyth-html-remote-mobile-path
+        (if orglyth-html-use-ftp
+            (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
+          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
