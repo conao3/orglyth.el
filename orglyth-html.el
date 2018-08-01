@@ -507,13 +507,20 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
   ;; files, when entire projects are published (see
   ;; `org-publish-projects').")
 
-  (let ((plist (cdr project)))
-    ;; (message (format "%s" project))
-    (message "%s" filename)
-    (message "%s" (plist-get plist :base-directory))
-    )
-  ;;(message (plist-get plist :base-directory))
-  )
+  (let* ((plist (cdr project))
+         (incpath (concat (plist-get plist :base-directory)
+                          (plist-get plist :sitemap-filename)))
+         (context (format "# orglyth_start
+#+include: %s
+# orglyth_end
+%s"
+                          incpath (f-read-text filename))))
+    
+    (when (and (plist-get plist :orglyth-include-sitemap)
+               (not (string= filename
+                             (expand-file-name incpath))))
+      (with-temp-file filename
+        (insert context)))))
 (advice-add 'org-publish-file :before #'orglyth-html-org-publish-file-before)
 ;; (advice-remove 'org-publish-file 'orglyth-html-org-publish-file-before)
 
