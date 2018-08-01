@@ -498,7 +498,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                                title)
                               filepath))))
 
-(defun orglyth-html-org-publish-file-before (filename &optional project no-cache)
+(defun orglyth-html-include-sitemap-add (filename &optional project no-cache)
   "Before advice on org-publish-file."
   ;; (defun org-publish-file (filename &optional project no-cache)
   ;;   "Publish file FILENAME from PROJECT.
@@ -521,7 +521,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                              (expand-file-name incpath))))
       (with-temp-file filename
         (insert context)))))
-(advice-add 'org-publish-file :before #'orglyth-html-org-publish-file-before)
+(advice-add 'org-publish-file :before #'orglyth-html-include-sitemap-add)
 ;; (advice-remove 'org-publish-file 'orglyth-html-org-publish-file-before)
 
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
