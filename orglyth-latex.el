@@ -114,7 +114,7 @@
     (orglyth-add-list-to-list
      'org-latex-packages-alist
      '(
-     ;;;;;;;;;;;;;;;;;;;;
+       ;;;;;;;;;;;;;;;;;;;;
        ;; org depends default packeages
        
        ("utf8" "inputenc")       ;; enable unicode input
@@ -130,7 +130,7 @@
        ("" "hyperref")           ;; hyperlink
        ("" "amsmath, amssymb")   ;; math packages
 
-     ;;;;;;;;;;;;;;;;;;;;
+       ;;;;;;;;;;;;;;;;;;;;
        ;; my optionnal packages
        
        ("" "pxjahyper")          ;; pdf bookmark label
