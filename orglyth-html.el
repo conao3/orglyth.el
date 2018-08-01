@@ -284,48 +284,6 @@ OS X:
 </div>
 </div>")
 
-(when orglyth-html-enable-opiton
-  (setq org-html-with-latex                 'mathjax
-        org-html-htmlize-output-type        'css
-        org-html-coding-system              'utf-8
-        org-publish-timestamp-directory     (concat org-directory ".org-timestamps/")
-        )
-  (setq org-html-mathjax-options
-        '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
-          (scale "100")
-          (align "center")
-          (font "TeX")
-          (linebreaks "false")
-          (autonumber "AMS")
-          (indent "0em")
-          (multlinewidth "85%")
-          (tagindent ".8em")
-          (tagside "right")))
-
-  (setq org-html-mathjax-template
-        "<script type=\"text/x-mathjax-config\">
-    MathJax.Hub.Config({
-        displayAlign: \"%ALIGN\",
-        displayIndent: \"%INDENT\",
-
-        \"HTML-CSS\": { scale: %SCALE,
-                        linebreaks: { automatic: \"%LINEBREAKS\" },
-                        webFont: \"%FONT\"
-                       },
-        SVG: {scale: %SCALE,
-              linebreaks: { automatic: \"%LINEBREAKS\" },
-              font: \"%FONT\"},
-        NativeMML: {scale: %SCALE},
-        TeX: { equationNumbers: {autoNumber: \"%AUTONUMBER\"},
-               MultLineWidth: \"%MULTLINEWIDTH\",
-               TagSide: \"%TAGSIDE\",
-               TagIndent: \"%TAGINDENT\"
-             }
-});
-</script>
-<script type=\"text/javascript\"
-        src=\"%PATH\"></script>"))
-
 (defvar orglyth-html-default-html-option
   `("default"
     ;; https://orgmode.org/manual/Publishing-options.html#Publishing-options
@@ -447,7 +405,49 @@ OS X:
         orglyth-html-remote-mobile-path
         (if orglyth-html-use-ftp
             (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
-          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/"))))
+          (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")))
+  
+  (when orglyth-html-enable-opiton
+    (setq org-html-with-latex                 'mathjax
+          org-html-htmlize-output-type        'css
+          org-html-coding-system              'utf-8
+          org-publish-timestamp-directory     (concat org-directory ".org-timestamps/")
+          )
+    (setq org-html-mathjax-options
+          '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
+            (scale "100")
+            (align "center")
+            (font "TeX")
+            (linebreaks "false")
+            (autonumber "AMS")
+            (indent "0em")
+            (multlinewidth "85%")
+            (tagindent ".8em")
+            (tagside "right")))
+
+    (setq org-html-mathjax-template
+          "<script type=\"text/x-mathjax-config\">
+    MathJax.Hub.Config({
+        displayAlign: \"%ALIGN\",
+        displayIndent: \"%INDENT\",
+
+        \"HTML-CSS\": { scale: %SCALE,
+                        linebreaks: { automatic: \"%LINEBREAKS\" },
+                        webFont: \"%FONT\"
+                       },
+        SVG: {scale: %SCALE,
+              linebreaks: { automatic: \"%LINEBREAKS\" },
+              font: \"%FONT\"},
+        NativeMML: {scale: %SCALE},
+        TeX: { equationNumbers: {autoNumber: \"%AUTONUMBER\"},
+               MultLineWidth: \"%MULTLINEWIDTH\",
+               TagSide: \"%TAGSIDE\",
+               TagIndent: \"%TAGINDENT\"
+             }
+});
+</script>
+<script type=\"text/javascript\"
+        src=\"%PATH\"></script>")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
