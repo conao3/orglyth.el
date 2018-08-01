@@ -498,7 +498,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                                title)
                               filepath))))
 
-(defun orglyth-html-include-sitemap-add (filename &optional project no-cache)
+(defun orglyth-html-include-sitemap (func filename &optional project no-cache)
   "Before advice on org-publish-file."
   ;; (defun org-publish-file (filename &optional project no-cache)
   ;;   "Publish file FILENAME from PROJECT.
@@ -520,18 +520,17 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                (not (string= filename
                              (expand-file-name incpath))))
       (with-temp-file filename
-        (insert context)))))
+        (insert context))))
 
-(defun orglyth-html-include-sitemap-remove (filename &optional project no-cache)
-  "Delete orglyth sitemap include."
+  (funcall func filename project no-cache)
+  
   (with-temp-file filename
     (insert (f-read-text filename))
     (goto-char 1)
     (while (re-search-forward "\\(# orglyth_start\\(\n\\|\.\\)*# orglyth_end\n*\\)" nil t)
       (replace-match ""))))
 
-(advice-add 'org-publish-file :before #'orglyth-html-include-sitemap-add)
-(advice-add 'org-publish-file :after  #'orglyth-html-include-sitemap-remove)
+(advice-add 'org-publish-file :around #'orglyth-html-include-sitemap)
 ;; (advice-remove 'org-publish-file 'orglyth-html-org-publish-file-before)
 
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
