@@ -57,14 +57,14 @@
 ;;  option frags
 ;;
 
-(defcustom orglyth-latex-enable-opiton nil
+(defcustom orglyth-latex-enable-option nil
   "When non-nil, enable recommended options in ox-latex."
   :group 'orglyth-html
   :type 'boolean)
 
 (defun orglyth-latex-init ()
   "Set various variables.  When `orglyth-latex-enable-option' is t."
-  (if (not orglyth-latex-enable-opiton)
+  (if (not orglyth-latex-enable-option)
       (message "Nothing to be done. `org-lyth-latex-enable-option' is nil")
     
     (setq org-latex-default-class "org-jsarticle")
