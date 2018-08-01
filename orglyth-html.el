@@ -330,6 +330,8 @@ OS X:
     :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
 
+(defun orglyth-html-project-init ()
+  "Add orglyth-html project to org-publish-project-alist."
 (orglyth-add-list-to-list
  'org-publish-project-alist
  ;; http://technohabits.blogspot.com/2013/01/org-modepublishingweb.html
@@ -368,7 +370,7 @@ OS X:
     :recursive t
     :base-extension "org"
     :publishing-function org-publish-attachment)
-   ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg"))))
+   ("website" :components ("web-rootindex" "web-orgfiles" "web-resources" "web-copyorg")))))
 
 (defun orglyth-html-init ()
   (setq orglyth-html-local-sorce-path
