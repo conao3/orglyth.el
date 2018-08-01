@@ -38,7 +38,7 @@
 ;;     :config
 ;;     (use-package orglyth-html
 ;;       :config
-;;       (setq orglyth-html-enable-opiton    t
+;;       (setq orglyth-html-enable-option    t
 ;;             orglyth-html-use-ftp          nil
 ;;             orglyth-html-local-root-path  "~/public_html/orglyth/"
 ;;             orglyth-html-remote-root-path "~/public_html/remote/"
@@ -122,7 +122,7 @@ This variable is internal variable for developer.")
 ;;  option frags
 ;;
 
-(defcustom orglyth-html-enable-opiton nil
+(defcustom orglyth-html-enable-option nil
   "When non-nil, enable recommended options in ox-html."
   :group 'orglyth-html
   :type 'boolean)
@@ -410,7 +410,7 @@ OS X:
             (concat orglyth-html-ftp-root-path orglyth-html-mobile-dir-name "/")
           (concat orglyth-html-remote-root-path orglyth-html-mobile-dir-name "/")))
   
-  (when orglyth-html-enable-opiton
+  (when orglyth-html-enable-option
     (setq org-html-with-latex                 'mathjax
           org-html-htmlize-output-type        'css
           org-html-coding-system              'utf-8
