@@ -521,7 +521,17 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
                              (expand-file-name incpath))))
       (with-temp-file filename
         (insert context)))))
+
+(defun orglyth-html-include-sitemap-remove (filename &optional project no-cache)
+  "Delete orglyth sitemap include."
+  (with-temp-file filename
+    (insert (f-read-text filename))
+    (goto-char 1)
+    (while (re-search-forward "\\(# orglyth_start\\(\n\\|\.\\)*# orglyth_end\n*\\)" nil t)
+      (replace-match ""))))
+
 (advice-add 'org-publish-file :before #'orglyth-html-include-sitemap-add)
+(advice-add 'org-publish-file :after  #'orglyth-html-include-sitemap-remove)
 ;; (advice-remove 'org-publish-file 'orglyth-html-org-publish-file-before)
 
 ;; http://davidaventimiglia.com/blogging_with_emacs.html
