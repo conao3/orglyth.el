@@ -504,24 +504,32 @@ Default for SITEMAP-FILENAME is `sitemap.org'"
 
   (let* ((plist (cdr project))
          (incpath (concat (plist-get plist :base-directory)
-                          (plist-get plist :sitemap-filename)))
-         (context (format "# orglyth_start
-#+include: %s
-# orglyth_end
-%s"
-                          incpath (f-read-text filename))))
-    
+                          (plist-get plist :sitemap-filename))))
     (when (and (plist-get plist :orglyth-include-sitemap)
                (not (string= filename
                              (expand-file-name incpath))))
-      (with-temp-file filename
-        (insert context))))
+      (let* ((visiting (find-buffer-visiting filename))
+             (work-buffer (or visiting (find-file-noselect filename)))
+             (context (format "# orglyth_start
+#+include: %s
+# orglyth_end
+%s"
+                              incpath (f-read-text filename))))
+        (unwind-protect
+            (with-current-buffer work-buffer
+              ;(with-temp-buffer
+                (insert context)
+                (let ((coding-system-for-write encoding))
+                  (write-file file))
+                ;)
+              )
+          (unless visiting (kill-buffer work-buffer))))))
 
   (funcall func filename project no-cache)
   
   (with-temp-file filename
     (insert (f-read-text filename))
-    (goto-char 1)
+    (goto-char (point-min))
     (while (re-search-forward "\\(# orglyth_start\\(\n\\|\.\\)*# orglyth_end\n*\\)" nil t)
       (replace-match ""))))
 
