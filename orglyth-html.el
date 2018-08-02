@@ -457,11 +457,6 @@ OS X:
 ;;  functions
 ;;
 
-(defun orglyth-html-write-str (str filename)
-  (with-temp-buffer
-    (insert str)
-    (write-region (point-min) (point-max) filename)))
-
 (defun orglyth-html-publish-sitemap-around (func &rest args)
   "Advice around `org-publish-sitemap' as FUNC.
 ARGS is argument.
