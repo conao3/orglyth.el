@@ -50,7 +50,7 @@ this function is minor change from `add-to-list'."
 ;; add :export keyword to #+include: syntax
 ;; see also `org-export-expand-include-keyword'
 (defun orglyth-:export-include ())
-(advice-add org-export-expand-include-keyword :before #'orglyth-:export-include)
+(advice-add 'org-export-expand-include-keyword :before #'orglyth-:export-include)
 
 (provide 'orglyth)
 ;;; orglyth.el ends here
