@@ -54,4 +54,3 @@ this function is minor change from `add-to-list'."
 
 (provide 'orglyth)
 ;;; orglyth.el ends here
-
