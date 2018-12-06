@@ -327,7 +327,7 @@ OS X:
 
     :auto-sitemap nil
     :base-extension "org"
-    :preparation-function orglyth-html-create-root-index-org
+    ;; :preparation-function orglyth-html-create-root-index-org
     :publishing-function org-html-publish-to-html))
 
 (defun orglyth-html-project-init ()
