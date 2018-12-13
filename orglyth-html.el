@@ -43,7 +43,8 @@
 ;;             orglyth-html-local-root-path  "~/public_html/orglyth/"
 ;;             orglyth-html-remote-root-path "~/public_html/remote/"
 ;;             orglyth-html-ftp-root-path    "/ftp:conao3@conao3.com:~/www/orglyth/")
-;;       (orglyth-html-reset-variables)))
+;;       (orglyth-html-init)
+;;       (orglyth-html-project-init)))
 ;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
