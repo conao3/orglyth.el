@@ -272,6 +272,11 @@ OS X:
 </div>
 ")))
 
+(defvar orglyth-html-head-extra '(("ja" "
+<p class=\"author\">Author: %a</p>
+<p class=\"date\">Date: %d</p>
+<p class=\"creator\">%c</p>")))
+
 (defvar orglyth-html-postamble-format '(("ja" "
 <p class=\"author\">Author: %a</p>
 <p class=\"date\">Date: %d</p>
@@ -295,6 +300,7 @@ OS X:
     ;; :html-footnote-format
     :html-head-include-default-style nil
     :html-head-include-scripts nil
+    :html-head-extra ,orglyth-html-head-extra
     :html-preamble-format ,orglyth-html-preamble-format
     :html-postamble-format ,orglyth-html-postamble-format))
 
