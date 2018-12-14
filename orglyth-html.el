@@ -272,10 +272,8 @@ OS X:
 </div>
 ")))
 
-(defvar orglyth-html-head-extra '(("ja" "
-<p class=\"author\">Author: %a</p>
-<p class=\"date\">Date: %d</p>
-<p class=\"creator\">%c</p>")))
+(defvar orglyth-html-head-extra "
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/parts/default.css\">")
 
 (defvar orglyth-html-postamble-format '(("ja" "
 <p class=\"author\">Author: %a</p>
