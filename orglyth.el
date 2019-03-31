@@ -36,10 +36,11 @@
 ;;
 
 (defmacro orglyth-add-list-to-list (dest-lst source-lst &optional append)
-  "Add to DEST-LST for SOURCE-LST in a destructive.
-Defaltly, add at the beginning of the list, but when APPEND is non-nil,
-SOURCE-LST is added at the end.
-this function is minor change from `add-to-list'."
+  "Add SOURCE_LST to DEST-LST in a destructive.
+Defaultly, add at the beginning of the list,
+but when APPEND is non-nil, SOURCE-LST is added at the end.
+This function is minor change from `add-to-list'."
+  (declare (indent 1))
   `(progn
      (mapc (lambda (x)
              (add-to-list ,dest-lst x ,append))
