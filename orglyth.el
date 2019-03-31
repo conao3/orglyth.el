@@ -24,7 +24,6 @@
 
 ;;; Code:
 
-(require 'f)
 (require 'org)
 
 (defgroup orglyth nil
