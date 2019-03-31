@@ -114,7 +114,7 @@
 ;;     │           ├── org-list.html
 ;;     │           ├── org-list.org
 ;;     │           └── ox-publish.org
-;;     └── html/
+;;     └── archives/
 ;;         ├── elisp/
 ;;         │   ├── index.html
 ;;         │   ├── boolean.html
