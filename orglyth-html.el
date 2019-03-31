@@ -202,6 +202,43 @@ OS X:
 ;;  custom variables
 ;;
 
+(defcustom orglyth-html-init-sexp-string
+  "
+;; debug config
+(setq debug-on-error  t)
+(setq init-file-debug t)
+(setq custom-file     \"/dev/null\")
+
+;; you can run like 'emacs -q -l ~/hoge/init.el'
+(when load-file-name
+  (setq user-emacs-directory
+        (expand-file-name (file-name-directory load-file-name))))
+
+;; package.el settings
+(setq package-archives '((\"melpa\" . \"https://melpa.org/packages/\")
+                         (\"gnu\"   . \"https://elpa.gnu.org/packages/\")
+                         (\"org\"   . \"https://orgmode.org/elpa/\")))
+(package-initialize)
+
+;; use-package install and settings
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package use-package
+  :custom ((use-package-expand-minimally t)))
+
+;; org install and settings
+(use-package org
+  :init
+  (use-package org-plus-contrib :ensure t :no-require t)
+  (use-package htmlize :ensure t))
+"
+  "orglyth-html init sexp as string"
+  :group 'orglyth-html
+  :type 'string
+  :set #'orglyth-html-init-with-setter)
+
 (defcustom orglyth-html-local-root-path "~/public_html/orglyth/"
   "orglyth-html sorce root path."
   :group 'orglyth-html
