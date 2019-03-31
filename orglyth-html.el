@@ -136,6 +136,7 @@
 (require 'orglyth)
 (require 'ox-publish)
 (require 'ox-html)
+(require 'seml-mode)
 
 (defgroup orglyth-html nil
   "A orglyth-html publish your web site using orgmode."
